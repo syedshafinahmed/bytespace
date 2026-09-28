@@ -14,9 +14,12 @@ const navLinks = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const linkCls = "font-satoshi text-base text-white/80 hover:text-white transition-colors duration-200";
+  const mobileLinkCls = "font-satoshi text-base text-white/80 hover:text-white hover:bg-white/10 px-3 py-2.5 rounded-lg transition-colors duration-200";
+
   return (
-    <header className="w-full sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+    <header className="w-full z-50">
+      <nav className="max-w-[1440px] mx-auto px-8 lg:px-16 h-[120px] flex items-center justify-between gap-4">
 
         {/* ── Left: Logo ── */}
         <Link href="/" className="flex-shrink-0">
@@ -34,12 +37,8 @@ export default function Navbar() {
         <ul className="hidden md:flex items-center gap-8">
           {navLinks.map(({ label, href }) => (
             <li key={label}>
-              <Link
-                href={href}
-                className="font-satoshi text-base text-gray-600 hover:text-gray-900 transition-colors duration-200 relative group"
-              >
+              <Link href={href} className={linkCls}>
                 {label}
-                <span className="absolute -bottom-0.5 left-0 w-0 h-[1.5px] bg-gray-900 transition-all duration-300 group-hover:w-full" />
               </Link>
             </li>
           ))}
@@ -47,21 +46,15 @@ export default function Navbar() {
 
         {/* ── Right: Auth + Cart (desktop) ── */}
         <div className="hidden md:flex items-center gap-6">
-          <Link
-            href="/signin"
-            className="font-satoshi text-base text-gray-600 hover:text-gray-900 transition-colors duration-200"
-          >
+          <Link href="/signin" className={linkCls}>
             Sign In
           </Link>
-          <Link
-            href="/signup"
-            className="font-satoshi text-base text-gray-600 hover:text-gray-900 transition-colors duration-200"
-          >
+          <Link href="/signup" className={linkCls}>
             Join Us
           </Link>
           <button
             aria-label="Shopping bag"
-            className="flex items-center hover:text-gray-900 transition-colors duration-200 text-gray-600"
+            className="flex items-center transition-colors duration-200 text-white/80 hover:text-white"
           >
             <MdOutlineShoppingBag size={20} />
           </button>
@@ -70,26 +63,14 @@ export default function Navbar() {
         {/* ── Mobile: Hamburger ── */}
         <button
           aria-label="Toggle menu"
-          className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 text-gray-700"
+          className="md:hidden p-2 rounded-lg transition-colors duration-200 text-white hover:bg-white/10"
           onClick={() => setMenuOpen((prev) => !prev)}
         >
           <span className="sr-only">Menu</span>
           <div className="flex flex-col gap-[5px] w-5">
-            <span
-              className={`block h-[2px] w-full bg-gray-800 rounded transition-all duration-300 origin-center ${
-                menuOpen ? "rotate-45 translate-y-[7px]" : ""
-              }`}
-            />
-            <span
-              className={`block h-[2px] w-full bg-gray-800 rounded transition-all duration-300 ${
-                menuOpen ? "opacity-0 scale-x-0" : ""
-              }`}
-            />
-            <span
-              className={`block h-[2px] w-full bg-gray-800 rounded transition-all duration-300 origin-center ${
-                menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
-              }`}
-            />
+            <span className={`block h-[2px] w-full bg-white rounded transition-all duration-300 origin-center ${menuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
+            <span className={`block h-[2px] w-full bg-white rounded transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`} />
+            <span className={`block h-[2px] w-full bg-white rounded transition-all duration-300 origin-center ${menuOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
           </div>
         </button>
       </nav>
@@ -100,35 +81,22 @@ export default function Navbar() {
           menuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="px-4 pb-5 pt-2 bg-white border-t border-gray-100 flex flex-col gap-1">
+        <div className="px-4 pb-5 pt-2 border-t flex flex-col gap-1 bg-[#002bb8] border-white/10">
           {navLinks.map(({ label, href }) => (
-            <Link
-              key={label}
-              href={href}
-              onClick={() => setMenuOpen(false)}
-              className="font-satoshi text-base text-gray-700 hover:text-gray-900 hover:bg-gray-50 px-3 py-2.5 rounded-lg transition-colors duration-200"
-            >
+            <Link key={label} href={href} onClick={() => setMenuOpen(false)} className={mobileLinkCls}>
               {label}
             </Link>
           ))}
-          <div className="mt-3 pt-3 border-t border-gray-100 flex flex-col gap-2">
-            <Link
-              href="/signin"
-              onClick={() => setMenuOpen(false)}
-              className="font-satoshi text-base text-gray-700 hover:text-gray-900 hover:bg-gray-50 px-3 py-2.5 rounded-lg transition-colors duration-200"
-            >
+          <div className="mt-3 pt-3 border-t flex flex-col gap-2 border-white/10">
+            <Link href="/signin" onClick={() => setMenuOpen(false)} className={mobileLinkCls}>
               Sign In
             </Link>
-            <Link
-              href="/signup"
-              onClick={() => setMenuOpen(false)}
-              className="font-satoshi text-base text-gray-700 hover:text-gray-900 hover:bg-gray-50 px-3 py-2.5 rounded-lg transition-colors duration-200"
-            >
+            <Link href="/signup" onClick={() => setMenuOpen(false)} className={mobileLinkCls}>
               Join Us
             </Link>
             <button
               aria-label="Shopping bag"
-              className="flex items-center gap-2 font-satoshi text-base text-gray-700 hover:text-gray-900 hover:bg-gray-50 px-3 py-2.5 rounded-lg transition-colors duration-200"
+              className="flex items-center gap-2 font-satoshi text-base px-3 py-2.5 rounded-lg transition-colors duration-200 text-white/80 hover:text-white hover:bg-white/10"
             >
               <MdOutlineShoppingBag size={20} />
               Shopping Bag
