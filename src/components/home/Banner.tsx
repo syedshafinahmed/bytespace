@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 
 export default function Banner() {
   return (
-    <section className="relative w-full bg-[#003BE2] h-[1024px] bg-[image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:56px_56px]">
+    <section className="relative w-full bg-[#003BE2] h-[1024px] bg-[image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:112px_112px]">
       {/* ── Navbar ── */}
       <Navbar />
 
@@ -91,14 +91,14 @@ export default function Banner() {
               <p className="font-satoshi text-[12px] text-[#242528]">4.5 (240)</p>
               <FaStar className="w-3.5 h-3.5" color="#D4FB20" />
             </div>
-            <Image src="/images/home_happy_students.png" alt="" width={144} height={50} className="w-[232px] h-[43px] mt-2" />
+            <Image src="/images/banner/home_happy_students.png" alt="" width={144} height={50} className="w-[232px] h-[43px] mt-2" />
           </div>
         </div>
       </div>
       {/* Lime arch — anchored to section bottom */}
       <div className="absolute bottom-0 inset-x-0 mx-auto w-[1149px] pointer-events-none">
         <Image
-          src="/images/Ellipse 7.png"
+          src="/images/banner/Ellipse 7.png"
           alt=""
           width={1149}
           height={1149}
@@ -110,7 +110,7 @@ export default function Banner() {
       {/* Student image — anchored to section bottom */}
       <div className="absolute bottom-0 inset-x-0 mx-auto z-20 w-[700px] translate-x-[62px]">
         <Image
-          src="/images/Image.png"
+          src="/images/banner/Image.png"
           alt="Student with headphones and laptop"
           width={578}
           height={541}
