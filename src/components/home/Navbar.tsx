@@ -46,7 +46,7 @@ export default function Navbar() {
 
         {/* ── Right: Auth + Cart (desktop) ── */}
         <div className="hidden md:flex items-center gap-6">
-          <Link href="/signin" className={linkCls}>
+          <Link href="/login" className={linkCls}>
             Sign In
           </Link>
           <Link href="/signup" className={linkCls}>
@@ -88,7 +88,7 @@ export default function Navbar() {
             </Link>
           ))}
           <div className="mt-3 pt-3 border-t flex flex-col gap-2 border-white/10">
-            <Link href="/signin" onClick={() => setMenuOpen(false)} className={mobileLinkCls}>
+            <Link href="/login" onClick={() => setMenuOpen(false)} className={mobileLinkCls}>
               Sign In
             </Link>
             <Link href="/signup" onClick={() => setMenuOpen(false)} className={mobileLinkCls}>
