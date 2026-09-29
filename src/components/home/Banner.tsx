@@ -1,16 +1,10 @@
 import Image from "next/image";
 import { IoSearchOutline } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
-import Navbar from "./Navbar";
 
 export default function Banner() {
   return (
-    <section className="relative w-full bg-[#003BE2] h-[1024px] bg-[image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:112px_112px]">
-      {/* ── Navbar ── */}
-      <Navbar />
-
-
-
+    <section className="relative w-full bg-[#003BE2] h-[1024px] pt-[120px] bg-[image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:112px_112px]">
       {/* ── Hero Content ── */}
       <div className="relative z-30 max-w-[1440px] w-full mx-auto px-8 lg:px-16 h-[904px]">
 

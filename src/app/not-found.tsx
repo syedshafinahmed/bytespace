@@ -1,15 +1,11 @@
 import Link from "next/link";
-import Navbar from "@/components/home/Navbar";
-import Footer from "@/components/home/Footer";
+import PublicLayout from "@/components/layout/PublicLayout";
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen flex flex-col">
+    <PublicLayout>
       {/* Blue Top Section with Grid */}
-      <section className="relative w-full bg-[#003BE2] min-h-[800px] flex-1 flex flex-col overflow-hidden bg-[image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:112px_112px]">
-        {/* Navbar */}
-        <Navbar />
-
+      <section className="relative w-full bg-[#003BE2] min-h-[800px] pt-[120px] flex-1 flex flex-col overflow-hidden bg-[image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:112px_112px]">
         {/* 404 Content Container */}
         <div className="relative z-10 max-w-[1440px] w-full mx-auto px-8 lg:px-16 flex-1 flex flex-col items-center justify-center text-center">
           
@@ -38,9 +34,6 @@ export default function NotFound() {
 
         </div>
       </section>
-
-      {/* Global Footer */}
-      <Footer />
-    </main>
+    </PublicLayout>
   );
 }

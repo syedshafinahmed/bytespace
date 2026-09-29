@@ -37,7 +37,7 @@ export function CourseCard({
         {/* Title row */}
         <div className="flex items-start justify-between gap-2">
           <div>
-            <h3 className="font-poppins font-semibold text-[20px] text-black leading-tight">
+            <h3 className="font-poppins font-semibold text-[20px] text-black leading-tight line-clamp-1">
               {title}
             </h3>
             <p className="font-satoshi text-[12px] text-[#4F4F4F] mt-1">

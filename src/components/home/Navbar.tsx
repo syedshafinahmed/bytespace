@@ -18,7 +18,7 @@ export default function Navbar() {
   const mobileLinkCls = "font-satoshi text-base text-white/80 hover:text-white hover:bg-white/10 px-3 py-2.5 rounded-lg transition-colors duration-200";
 
   return (
-    <header className="w-full z-50">
+    <header className="absolute top-0 inset-x-0 w-full z-50">
       <nav className="max-w-[1440px] mx-auto px-8 lg:px-16 h-[120px] flex items-center justify-between gap-4">
 
         {/* ── Left: Logo ── */}
