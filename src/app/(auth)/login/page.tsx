@@ -6,7 +6,7 @@ export default function LoginPage() {
     <>
       <div className="mb-8">
         <p className="text-[#003BE2] text-xl mb-2">Sign In</p>
-        <h2 className="text-[44px] text-[#242528] font-semibold leading-[48px]">Welcome Back</h2>
+        <h2 className="text-3xl md:text-[44px] text-[#242528] font-semibold leading-[48px]">Welcome Back</h2>
       </div>
 
       <form className="space-y-5">

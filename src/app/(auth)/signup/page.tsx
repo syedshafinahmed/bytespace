@@ -5,7 +5,7 @@ export default function SignupPage() {
     <>
       <div className="mb-8">
         <p className="text-[#003BE2] text-xl mb-2">Create an Account</p>
-        <h2 className="text-[44px] text-[#242528] font-semibold leading-[48px]">
+        <h2 className="text-3xl md:text-[44px] text-[#242528] font-semibold leading-[48px]">
           Welcome to<br />ByteSpace
         </h2>
       </div>

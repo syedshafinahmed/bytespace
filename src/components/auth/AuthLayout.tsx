@@ -99,8 +99,33 @@ export function AuthLayout({ children, title, description }: AuthLayoutProps) {
 
       {/* ── Right Column (form panel) ── */}
       <div className="w-full lg:w-1/2 px-6 lg:px-16 pt-6 lg:pt-[150px] pb-16 flex items-start justify-center relative z-20">
-        <div className="w-[579px] h-[784px] bg-white rounded-[32px] p-[61px] text-black shadow-2xl overflow-y-auto">
-          {children}
+        <div className="relative w-full max-w-[579px] lg:w-[579px]">
+          {/* Mobile Only: Oval on top-left corner */}
+          <div className="block lg:hidden absolute -top-12 -left-7 z-30 pointer-events-none w-[120px]">
+            <Image
+              src="/images/auth/oval.png"
+              alt=""
+              width={146}
+              height={146}
+              className="w-full h-auto object-contain drop-shadow-md"
+            />
+          </div>
+
+          {/* Mobile Only: Cone on bottom-right corner */}
+          <div className="block lg:hidden absolute -bottom-7 -right-5 z-30 pointer-events-none w-[130px]">
+            <Image
+              src="/images/auth/cone.png"
+              alt=""
+              width={188}
+              height={188}
+              className="w-full h-auto object-contain drop-shadow-xl"
+            />
+          </div>
+
+          {/* Form Card */}
+          <div className="w-full max-w-[579px] lg:w-[579px] h-auto lg:h-[784px] bg-white rounded-[32px] p-[61px] text-black shadow-2xl lg:overflow-y-auto">
+            {children}
+          </div>
         </div>
       </div>
     </div>
