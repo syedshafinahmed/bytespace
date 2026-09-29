@@ -68,7 +68,7 @@ export function AuthLayout({ children, title, description }: AuthLayoutProps) {
           <div className="absolute top-25 left-0 z-10">
             <CourseCard
               title="Build Digital Asset: A Comprehensive Guide"
-              image="/images/explore/e2.png"
+              image="/images/explore/explore2.png"
               starColor="#D4FB20"
               className="shadow-sm"
             />
@@ -78,7 +78,7 @@ export function AuthLayout({ children, title, description }: AuthLayoutProps) {
           <div className="absolute top-0 left-32 z-20">
             <CourseCard
               title="The Power of Big Data"
-              image="/images/explore/e3.png"
+              image="/images/explore/explore3.png"
               starColor="#D4FB20"
               className="shadow-xl"
             />
