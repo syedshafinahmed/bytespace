@@ -137,20 +137,20 @@ function CourseDetailsContent({
     <PublicLayout>
       <div className="relative w-full bg-white">
         {/* Blue Header Background */}
-        <section className="absolute top-0 left-0 w-full h-[957px] bg-[#003BE2] bg-[image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:112px_112px]" />
+        <section className="absolute top-0 left-0 w-full h-[540px] sm:h-[680px] lg:h-[957px] bg-[#003BE2] bg-[image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:112px_112px]" />
 
         {/* Main Content Area */}
-        <div className="relative z-10 max-w-[1440px] w-full mx-auto px-8 lg:px-16 pt-[140px] pb-28">
+        <div className="relative z-10 max-w-[1440px] w-full mx-auto px-4 sm:px-8 lg:px-16 pt-[96px] sm:pt-[140px] pb-16 sm:pb-28">
           {/* Header Row */}
-          <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
+          <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 sm:gap-6">
             <div className="max-w-[850px]">
-              <h1 className="font-poppins font-semibold text-[36px] text-[#F5F5F6] leading-tight">
+              <h1 className="font-poppins font-semibold text-2xl sm:text-[36px] text-[#F5F5F6] leading-tight">
                 {courseTitle}
               </h1>
-              <p className="font-satoshi text-white/90 text-base md:text-[18px] mt-2">
+              <p className="font-satoshi text-white/90 text-sm sm:text-base md:text-[18px] mt-2">
                 Unlock the Power of Digital Creation with Expert Guidance
               </p>
-              <p className="font-satoshi font-medium text-[#F1F4FE] text-xl mt-6 text-white/80">
+              <p className="font-satoshi font-medium text-[#F1F4FE] text-base sm:text-xl mt-4 sm:mt-6 text-white/80">
                 by{" "}
                 <Link
                   href="/creators"
@@ -170,7 +170,7 @@ function CourseDetailsContent({
                   alert("Course link copied to clipboard!");
                 }
               }}
-              className="bg-[#D4FB20] text-[#242528] w-[122px] h-[40px] flex justify-center items-center rounded-full px-6 py-2.5 gap-2 font-satoshi self-start md:self-auto shadow-sm"
+              className="bg-[#D4FB20] text-[#242528] w-[122px] h-[40px] flex justify-center items-center rounded-full px-6 py-2.5 gap-2 font-satoshi self-start md:self-auto shadow-sm flex-shrink-0"
             >
               <IoShareSocialOutline size={18} />
               <span className="text-[#242528] text-base font-medium">Share</span>
@@ -178,14 +178,14 @@ function CourseDetailsContent({
           </div>
 
           {/* Badges / Meta row */}
-          <CourseBadges className="mt-6 mb-15" />
+          <CourseBadges className="mt-4 sm:mt-6 mb-8 sm:mb-15" />
 
           {/* Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             {/* Left Content Column (8 cols) */}
-            <div className="lg:col-span-8 flex flex-col">
+            <div className="lg:col-span-8 flex flex-col w-full">
               {/* Video Preview Card */}
-              <div className="relative w-[720px] h-[479px] rounded-[28px] overflow-hidden shadow-2xl bg-gray-900 flex items-center justify-center group">
+              <div className="relative w-full max-w-[720px] aspect-[720/479] lg:h-[479px] rounded-[20px] sm:rounded-[28px] overflow-hidden shadow-2xl bg-gray-900 flex items-center justify-center group mx-auto lg:mx-0">
                 <Image
                   src="/images/courses/course_thumbnail.jpg"
                   alt={courseTitle}
@@ -196,21 +196,21 @@ function CourseDetailsContent({
                 {/* Play Button */}
                 <button
                   aria-label="Play course preview"
-                  className="relative z-10 w-20 h-20 rounded-2xl bg-black/45 backdrop-blur-md flex items-center justify-center text-white hover:scale-110 hover:bg-black/60 transition-all shadow-xl"
+                  className="relative z-10 w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-black/45 backdrop-blur-md flex items-center justify-center text-white hover:scale-110 hover:bg-black/60 transition-all shadow-xl"
                 >
-                  <FaPlay size={22} className="ml-1 text-white" />
+                  <FaPlay size={20} className="ml-1 text-white sm:scale-110" />
                 </button>
               </div>
 
               {/* Tabs */}
-              <div className="flex items-center gap-3 mt-[143px]">
+              <div className="flex items-center gap-2 sm:gap-3 mt-8 sm:mt-16 lg:mt-[143px] overflow-x-auto no-scrollbar sm:overflow-visible">
                 {(["About", "Lesson", "Reviews"] as const).map((tab) => {
                   const isActive = activeTab === tab || (tab === "Lesson" && activeTab === "Lessons");
                   return (
                     <button
                       key={tab}
                       onClick={() => setActiveTab(tab)}
-                      className={`h-11 px-6 rounded-full font-satoshi text-[16px] font-medium flex items-center justify-center transition-colors cursor-pointer ${isActive
+                      className={`h-10 sm:h-11 px-5 sm:px-6 rounded-full font-satoshi text-sm sm:text-[16px] font-medium flex items-center justify-center transition-colors cursor-pointer flex-shrink-0 ${isActive
                         ? "bg-[#D4FB20] text-[#242528]"
                         : "bg-[#F5F5F6] text-[#4B4C53] hover:bg-gray-200"
                         }`}
@@ -376,12 +376,12 @@ function CourseDetailsContent({
                       What Learners Are Saying
                     </h2>
                     <p className="font-satoshi text-base text-[#4B4C53] leading-relaxed mb-8">
-                      Discover what our learners have to say about their experience with &apos;Build Digital Assets: A <br /> Comprehensive Guide.&apos; Read reviews and ratings from individuals who have embarked on the <br /> transformative journey of mastering digital asset creation.
+                      Discover what our learners have to say about their experience with &apos;Build Digital Assets: A <br className="hidden sm:inline" /> Comprehensive Guide.&apos; Read reviews and ratings from individuals who have embarked on the <br className="hidden sm:inline" /> transformative journey of mastering digital asset creation.
                     </p>
                   </div>
 
                   {/* Ratings Summary Card */}
-                  <div className="border border-[#E5E7EB] w-[723px] h-[226px] rounded-[16px] p-6 md:p-8 bg-white shadow-sm flex flex-col sm:flex-row items-center gap-6 md:gap-8">
+                  <div className="border border-[#E5E7EB] w-full max-w-[723px] h-auto lg:h-[226px] rounded-[16px] p-5 sm:p-6 md:p-8 bg-white shadow-sm flex flex-col sm:flex-row items-center gap-5 sm:gap-6 md:gap-8">
                     {/* Score Box */}
                     <div className="w-[129px] h-[140px] rounded-[8px] bg-[#D4FB20] flex flex-col items-center justify-center flex-shrink-0">
                       <span className="font-satoshi text-sm font-medium text-[#242528] mb-1">
@@ -467,8 +467,8 @@ function CourseDetailsContent({
             </div>
 
             {/* Right Sticky Sidebar Column (4 cols) */}
-            <div className="lg:col-span-4 lg:sticky lg:top-8 flex justify-center lg:justify-end">
-              <div className="w-[412px] h-auto bg-white rounded-[24px] p-10 shadow-[0_12px_40px_rgba(0,0,0,0.08)] border border-gray-100 flex flex-col justify-between">
+            <div className="lg:col-span-4 lg:sticky lg:top-8 flex justify-center lg:justify-end w-full mt-10 lg:mt-0">
+              <div className="w-full max-w-[412px] h-auto bg-white rounded-[24px] p-6 sm:p-10 shadow-[0_12px_40px_rgba(0,0,0,0.08)] border border-gray-100 flex flex-col justify-between mx-auto lg:mx-0">
                 {/* Top Section */}
                 <div>
                   {/* Lessons Header */}
