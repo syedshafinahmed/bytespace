@@ -92,72 +92,72 @@ The platform includes a landing experience, searchable and filterable course cat
 
 ```
 bytespace/
-├── .env.example                         # Environment variable template
+├── .env.example                              # Environment variable template
 ├── public/
-│   ├── favicon.png                      # Standard brand favicon
-│   ├── site.webmanifest                 # Web application manifest
+│   ├── favicon.png                           # Standard brand favicon
+│   ├── site.webmanifest                      # Web application manifest
 │   └── images/
-│       ├── auth/                        # Authentication illustrations & brand assets
-│       ├── banner/                      # Hero 3D decorative shapes & frames
-│       ├── courses/                     # Course thumbnails, previews & gallery shots
-│       ├── creator/                     # Creator profile pictures & badges
-│       ├── cta/                         # Call to action graphics
-│       ├── explore/                     # Course catalog preview cards
-│       ├── growth/                      # Growth section graphics
-│       ├── logo/                        # Header, footer & icon brand logos
-│       ├── marquee/                     # Partner & brand logos
-│       └── testimonials/                # Student avatar photos
+│       ├── auth/                             # Authentication illustrations & brand assets
+│       ├── banner/                           # Hero 3D decorative shapes & frames
+│       ├── courses/                          # Course thumbnails, previews & gallery shots
+│       ├── creator/                          # Creator profile pictures & badges
+│       ├── cta/                              # Call to action graphics
+│       ├── explore/                          # Course catalog preview cards
+│       ├── growth/                           # Growth section graphics
+│       ├── logo/                             # Header, footer & icon brand logos
+│       ├── marquee/                          # Partner & brand logos
+│       └── testimonials/                     # Student avatar photos
 ├── src/
 │   ├── app/
 │   │   ├── (auth)/
-│   │   │   ├── layout.tsx               # Dual-panel split layout for auth pages
-│   │   │   ├── login/page.tsx           # Sign in page
-│   │   │   └── signup/page.tsx          # Registration page
+│   │   │   ├── layout.tsx                    # Dual-panel split layout for auth pages
+│   │   │   ├── login/page.tsx                # Sign in page
+│   │   │   └── signup/page.tsx               # Registration page
 │   │   ├── courses/
 │   │   │   ├── [id]/
-│   │   │   │   ├── loading.tsx          # Course details route skeleton fallback
-│   │   │   │   └── page.tsx             # Course details, curriculum & reviews
-│   │   │   ├── loading.tsx              # Course catalog route skeleton fallback
-│   │   │   └── page.tsx                 # Course catalog with filters & search
+│   │   │   │   ├── loading.tsx               # Course details route skeleton fallback
+│   │   │   │   └── page.tsx                  # Course details, curriculum & reviews
+│   │   │   ├── loading.tsx                   # Course catalog route skeleton fallback
+│   │   │   └── page.tsx                      # Course catalog with filters & search
 │   │   ├── creators/
-│   │   │   ├── loading.tsx              # Creator profile route skeleton fallback
-│   │   │   └── page.tsx                 # Creator profile & instructor catalog
-│   │   ├── globals.css                  # Tailwind v4 import & theme variables
-│   │   ├── icon.png                     # Favicon asset
-│   │   ├── layout.tsx                   # Root HTML shell with fonts, SEO & JSON-LD
-│   │   ├── not-found.tsx                # Custom 404 error page
-│   │   └── page.tsx                     # Home landing page
+│   │   │   ├── loading.tsx                   # Creator profile route skeleton fallback
+│   │   │   └── page.tsx                      # Creator profile & instructor catalog
+│   │   ├── globals.css                       # Tailwind v4 import & theme variables
+│   │   ├── icon.png                          # Favicon asset
+│   │   ├── layout.tsx                        # Root HTML shell with fonts, SEO & JSON-LD
+│   │   ├── not-found.tsx                     # Custom 404 error page
+│   │   └── page.tsx                          # Home landing page
 │   ├── components/
 │   │   ├── auth/
-│   │   │   └── AuthLayout.tsx           # Branded authentication template
+│   │   │   └── AuthLayout.tsx                # Branded authentication template
 │   │   ├── home/
-│   │   │   ├── Banner.tsx               # Responsive hero section
-│   │   │   ├── CTA.tsx                  # Promotional conversion banner
-│   │   │   ├── ExploreSection.tsx       # Course discovery preview grid
-│   │   │   ├── Footer.tsx               # Site footer with directory links
-│   │   │   ├── GrowthSection.tsx        # Platform impact & statistics
-│   │   │   ├── MarqueeSection.tsx       # Brand partners ticker
-│   │   │   ├── Navbar.tsx               # Header with mobile sliding drawer
-│   │   │   └── Testimonial.tsx          # Learner reviews & feedback
+│   │   │   ├── Banner.tsx                    # Responsive hero section
+│   │   │   ├── CTA.tsx                       # Promotional conversion banner
+│   │   │   ├── ExploreSection.tsx            # Course discovery preview grid
+│   │   │   ├── Footer.tsx                    # Site footer with directory links
+│   │   │   ├── GrowthSection.tsx             # Platform impact & statistics
+│   │   │   ├── MarqueeSection.tsx            # Brand partners ticker
+│   │   │   ├── Navbar.tsx                    # Header with mobile sliding drawer
+│   │   │   └── Testimonial.tsx               # Learner reviews & feedback
 │   │   ├── layout/
-│   │   │   └── PublicLayout.tsx         # Layout wrapper (Navbar + Content + Footer)
+│   │   │   └── PublicLayout.tsx              # Layout wrapper (Navbar + Content + Footer)
 │   │   ├── skeletons/
-│   │   │   ├── CourseCardSkeleton.tsx   # Reusable course card loader
-│   │   │   ├── CourseDetailsSkeleton.tsx# Detailed course view skeleton
-│   │   │   ├── CoursesPageSkeleton.tsx  # Course catalog page skeleton
-│   │   │   └── CreatorPageSkeleton.tsx  # Creator profile page skeleton
+│   │   │   ├── CourseCardSkeleton.tsx        # Reusable course card loader
+│   │   │   ├── CourseDetailsSkeleton.tsx     # Detailed course view skeleton
+│   │   │   ├── CoursesPageSkeleton.tsx       # Course catalog page skeleton
+│   │   │   └── CreatorPageSkeleton.tsx       # Creator profile page skeleton
 │   │   └── ui/
-│   │       ├── CourseBadges.tsx         # Course difficulty, rating & student pills
-│   │       ├── CourseCard.tsx           # Reusable course card component
-│   │       ├── CourseInclusions.tsx     # Sidebar course feature checklist
-│   │       ├── CourseLessonsList.tsx    # Sidebar lesson breakdown list
-│   │       └── ReviewCard.tsx           # User review & testimonial card
+│   │       ├── CourseBadges.tsx              # Course difficulty, rating & student pills
+│   │       ├── CourseCard.tsx                # Reusable course card component
+│   │       ├── CourseInclusions.tsx          # Sidebar course feature checklist
+│   │       ├── CourseLessonsList.tsx         # Sidebar lesson breakdown list
+│   │       └── ReviewCard.tsx                # User review & testimonial card
 │   └── fonts/
-│       └── Satoshi-Regular.otf          # Local font binary for Satoshi typography
-├── next.config.ts                       # Next.js configuration
-├── package.json                         # Project dependencies and npm scripts
-├── postcss.config.mjs                   # PostCSS plugin pipeline
-└── tsconfig.json                        # TypeScript compiler options
+│       └── Satoshi-Regular.otf               # Local font binary for Satoshi typography
+├── next.config.ts                            # Next.js configuration
+├── package.json                              # Project dependencies and npm scripts
+├── postcss.config.mjs                        # PostCSS plugin pipeline
+└── tsconfig.json                             # TypeScript compiler options
 ```
 
 ---
@@ -217,8 +217,8 @@ bytespace/
    ```
    Configure your environment variables:
    ```env
-   NEXT_PUBLIC_SITE_URL=https://bytespace-ssa.vercel.app
-   NEXT_PUBLIC_OG_IMAGE_URL=https://res.cloudinary.com/dwi0rh2ti/image/upload/v1790702821/bytespace-og_x5iutv.png
+   NEXT_PUBLIC_SITE_URL=https://your-domain.vercel.app
+   NEXT_PUBLIC_OG_IMAGE_URL=https://your-image-host.com/og-image.png
    ```
 
 3. **Install dependencies**:
