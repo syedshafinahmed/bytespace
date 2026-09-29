@@ -1,36 +1,216 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <img alt="ByteSpace Logo" width="160" src="public/images/logo/Header_Logo.png" />
+  
+  ## **Digital Learning & Creator Marketplace**
 
-## Getting Started
+  [![Next.js](https://img.shields.io/badge/Next.js-16.3.6-000000?style=flat-square&logo=next.js)](https://nextjs.org/)
+  [![React](https://img.shields.io/badge/React-19.2.8-61DAFB?style=flat-square&logo=react)](https://react.dev/)
+  [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+  [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
+  [![React Icons](https://img.shields.io/badge/React_Icons-5.7.0-E91E63?style=flat-square&logo=react)](https://react-icons.github.io/react-icons/)
 
-First, run the development server:
+</div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 📖 Overview
+
+**ByteSpace** is an online course and digital asset learning marketplace for digital creators, designers, and developers. The application delivers a platform to discover, learn, and master creative and technical disciplines including UI/UX design, marketing, data, development, and entrepreneurship.
+
+The platform includes a landing experience, searchable and filterable course catalog, curriculum detail pages with module breakdowns and review systems, creator profiles, authentication views, and fully responsive layouts across mobile, tablet, and desktop viewports.
+
+---
+
+## ✨ Implemented Features
+
+### 🏠 Landing Page (`/`)
+- **Hero Banner**: Stylized 3D decorative assets with floating metric cards, responsive mobile layout, and direct CTA actions.
+- **Partner Marquee**: Brand partnership logo showcase strip.
+- **Course Exploration Grid**: Featured course cards showing thumbnail, category, student count, ratings, and price tags.
+- **Growth & Value Section**: Creator milestone highlights and platform statistics.
+- **Call-to-Action (CTA)**: Lead-generation banner connecting aspiring learners with instructors.
+- **Student Testimonials**: Community review cards with ratings and learner feedback.
+- **Global Navigation & Footer**: Responsive navbar with animated mobile slide-out drawer, navigation links, search, and footer directory.
+
+### 📚 Course Catalog (`/courses`)
+- **Category Filtering**: Filter by disciplines including UI/UX Design, Animation, Marketing, Social Media, Drawing & Painting, Music, and Cooking.
+- **Search & Sort**: Real-time search bar combined with level and sorting filter controls.
+- **Course Grid**: Responsive multi-column grid rendering course metadata badges (difficulty level, ratings, review count, active students).
+- **Pagination**: Numbered pagination controls for multi-page course navigation.
+
+### 🎓 Course Details (`/courses/[id]`)
+- **Course Hero**: Dynamic title, author attribution with profile link, meta badges, and native Web Share API / clipboard sharing.
+- **Video Preview Player**: Video thumbnail card with centered play button overlay and responsive aspect ratios.
+- **Tabbed Course Information**:
+  - **About Tab**: In-depth course overview, 4-column visual sneak peek image gallery, and checklist of key learning outcomes.
+  - **Lesson Tab**: Comprehensive syllabus listing module titles, video durations, lesson descriptions, and a learning progress completion tracker.
+  - **Reviews Tab**: Aggregate score card (4.7 rating), 5-star distribution progress bars, star filter pills, and individual learner review cards with user avatars.
+- **Sticky Enrollment Sidebar**: Desktop-sticky checkout card detailing total lessons, watch hours, pricing ($25/lifetime), feature inclusions list, and creator profile card with link to full portfolio.
+
+### 👤 Creator Profile (`/creators`)
+- **Instructor Overview**: Creator banner with avatar, bio, total courses count, student count, average ratings, and interactive Follow toggle.
+- **Published Courses**: Filterable catalog of courses created by the instructor.
+
+### 🔐 Authentication (`/login`, `/signup`)
+- **Shared Auth Layout**: Split-screen design featuring promotional branding panel alongside form container.
+- **Sign In (`/login`)**: Email and password input fields, sign-in action, and social authentication buttons (Google, Facebook).
+- **Registration (`/signup`)**: Full name, email, and password registration workflow with routing to login.
+
+### ⚠️ Error Handling (`/not-found`)
+- **Custom 404 Page**: Responsive gradient typography, error explanation, and one-click return to homepage.
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology | Details |
+|---|---|---|
+| **Framework** | Next.js 16.3.6 | App Router, Server and Client Components |
+| **UI Library** | React 19.2.8 | Latest React release with React Compiler (`babel-plugin-react-compiler`) |
+| **Language** | TypeScript 5 | Strict static typing across components and data interfaces |
+| **Styling** | TailwindCSS 4 | PostCSS engine (`@tailwindcss/postcss`), custom design tokens |
+| **Icons** | React Icons 5.7.0 | Material Design (`md`), Ionicons (`io5`), FontAwesome (`fa`), Feather (`fi`) |
+| **Typography** | Next Font | Poppins (Google Fonts) & Satoshi (Local Font) |
+
+---
+
+## 📁 Project Structure
+
+```
+bytespace/
+├── public/
+│   └── images/
+│       ├── auth/                   # Authentication illustrations & brand assets
+│       ├── banner/                 # Hero 3D decorative shapes & frames
+│       ├── courses/                # Course thumbnails, previews & gallery shots
+│       ├── creator/                # Creator profile pictures & badges
+│       ├── cta/                    # Call to action graphics
+│       ├── explore/                # Course catalog preview cards
+│       ├── growth/                 # Growth section graphics
+│       ├── logo/                   # Header, footer & icon brand logos
+│       ├── marquee/                # Partner & brand logos
+│       └── testimonials/           # Student avatar photos
+├── src/
+│   ├── app/
+│   │   ├── (auth)/
+│   │   │   ├── layout.tsx          # Dual-panel split layout for auth pages
+│   │   │   ├── login/page.tsx      # Sign in page
+│   │   │   └── signup/page.tsx     # Registration page
+│   │   ├── courses/
+│   │   │   ├── [id]/page.tsx       # Course details, curriculum & reviews
+│   │   │   └── page.tsx            # Course catalog with filters & search
+│   │   ├── creators/
+│   │   │   └── page.tsx            # Creator profile & instructor catalog
+│   │   ├── globals.css             # Tailwind v4 import & theme variables
+│   │   ├── icon.png                # Favicon
+│   │   ├── layout.tsx              # Root HTML shell with font configuration
+│   │   ├── not-found.tsx           # Custom 404 error page
+│   │   └── page.tsx                # Home landing page
+│   ├── components/
+│   │   ├── auth/
+│   │   │   └── AuthLayout.tsx      # Branded authentication template
+│   │   ├── home/
+│   │   │   ├── Banner.tsx          # Responsive hero section
+│   │   │   ├── CTA.tsx             # Promotional conversion banner
+│   │   │   ├── ExploreSection.tsx  # Course discovery preview grid
+│   │   │   ├── Footer.tsx          # Site footer with directory links
+│   │   │   ├── GrowthSection.tsx   # Platform impact & statistics
+│   │   │   ├── MarqueeSection.tsx  # Brand partners ticker
+│   │   │   ├── Navbar.tsx          # Header with mobile sliding drawer
+│   │   │   └── Testimonial.tsx     # Learner reviews & feedback
+│   │   ├── layout/
+│   │   │   └── PublicLayout.tsx    # Layout wrapper (Navbar + Content + Footer)
+│   │   └── ui/
+│   │       ├── CourseBadges.tsx    # Course difficulty, rating & student pills
+│   │       ├── CourseCard.tsx      # Reusable course card component
+│   │       ├── CourseInclusions.tsx# Sidebar course feature checklist
+│   │       ├── CourseLessonsList.tsx# Sidebar lesson breakdown list
+│   │       └── ReviewCard.tsx      # User review & testimonial card
+│   └── fonts/
+│       └── Satoshi-Regular.otf     # Local font binary for Satoshi typography
+├── next.config.ts                  # Next.js configuration
+├── package.json                    # Project dependencies and npm scripts
+├── postcss.config.mjs              # PostCSS plugin pipeline
+└── tsconfig.json                   # TypeScript compiler options
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🌐 Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Public Pages
+| Route | Description |
+|---|---|
+| `/` | Landing page featuring hero, course explorer, growth metrics, and reviews |
+| `/courses` | Searchable course catalog with category tabs, level filters, and pagination |
+| `/courses/[id]` | Detailed course syllabus, video preview, tabbed content, and enrollment sidebar |
+| `/creators` | Creator profile page with bio, stats, and instructor courses |
+| `/not-found` | Custom 404 page for non-existent routes |
 
-## Learn More
+### Auth Pages
+| Route | Description |
+|---|---|
+| `/login` | User sign-in with email/password and social login shortcuts |
+| `/signup` | New user registration form |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Design System
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Color Palette**:
+  - Primary Blue: `#003BE2` (used in headers, accents, and brand badges)
+  - Volt Accent: `#D4FB20` (used in primary buttons, rating badges, active pills)
+  - Neutral Dark: `#242528` (used for headings, dark card text)
+  - Slate Gray: `#4B4C53` / `#82868E` (used for secondary body text)
+  - Soft Light: `#F5F5F6` / `#F1F4FE` (used for card backgrounds and pills)
+- **Typography**:
+  - Headings: `Poppins` (weights 300, 400, 500, 600, 700, 800)
+  - Body & UI: `Satoshi` (variable local font)
+- **Responsiveness**: Fluid layout scaling across mobile (360px+), tablet, and desktop (1024px, 1280px, 1440px) without horizontal scrolling.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Getting Started
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Prerequisites
+
+- **Node.js**: v18.18 or higher (v20+ recommended)
+- **Package Manager**: npm, yarn, or pnpm
+
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/syedshafinahmed/bytespace.git
+   cd bytespace
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Start the local development server**:
+   ```bash
+   npm run dev
+   ```
+
+4. **View in browser**:
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 📜 Available Scripts
+
+| Command | Action |
+|---|---|
+| `npm run dev` | Starts the Next.js development server with hot-reloading |
+| `npm run build` | Compiles the production application bundle with Next.js & React Compiler |
+| `npm run start` | Boots the compiled production server |
+| `npm run lint` | Runs ESLint checks across project files |
+
+---
+
+<div align="center">
+  <p><strong>ByteSpace — Digital Learning & Creator Marketplace</strong></p>
+</div>
