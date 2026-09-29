@@ -7,7 +7,6 @@
   [![React](https://img.shields.io/badge/React-19.2.8-61DAFB?style=flat-square&logo=react)](https://react.dev/)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
   [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
-  [![React Icons](https://img.shields.io/badge/React_Icons-5.7.0-E91E63?style=flat-square&logo=react)](https://react-icons.github.io/react-icons/)
 
 </div>
 
@@ -80,58 +79,58 @@ The platform includes a landing experience, searchable and filterable course cat
 bytespace/
 ├── public/
 │   └── images/
-│       ├── auth/                   # Authentication illustrations & brand assets
-│       ├── banner/                 # Hero 3D decorative shapes & frames
-│       ├── courses/                # Course thumbnails, previews & gallery shots
-│       ├── creator/                # Creator profile pictures & badges
-│       ├── cta/                    # Call to action graphics
-│       ├── explore/                # Course catalog preview cards
-│       ├── growth/                 # Growth section graphics
-│       ├── logo/                   # Header, footer & icon brand logos
-│       ├── marquee/                # Partner & brand logos
-│       └── testimonials/           # Student avatar photos
+│       ├── auth/                        # Authentication illustrations & brand assets
+│       ├── banner/                      # Hero 3D decorative shapes & frames
+│       ├── courses/                     # Course thumbnails, previews & gallery shots
+│       ├── creator/                     # Creator profile pictures & badges
+│       ├── cta/                         # Call to action graphics
+│       ├── explore/                     # Course catalog preview cards
+│       ├── growth/                      # Growth section graphics
+│       ├── logo/                        # Header, footer & icon brand logos
+│       ├── marquee/                     # Partner & brand logos
+│       └── testimonials/                # Student avatar photos
 ├── src/
 │   ├── app/
 │   │   ├── (auth)/
-│   │   │   ├── layout.tsx          # Dual-panel split layout for auth pages
-│   │   │   ├── login/page.tsx      # Sign in page
-│   │   │   └── signup/page.tsx     # Registration page
+│   │   │   ├── layout.tsx               # Dual-panel split layout for auth pages
+│   │   │   ├── login/page.tsx           # Sign in page
+│   │   │   └── signup/page.tsx          # Registration page
 │   │   ├── courses/
-│   │   │   ├── [id]/page.tsx       # Course details, curriculum & reviews
-│   │   │   └── page.tsx            # Course catalog with filters & search
+│   │   │   ├── [id]/page.tsx            # Course details, curriculum & reviews
+│   │   │   └── page.tsx                 # Course catalog with filters & search
 │   │   ├── creators/
-│   │   │   └── page.tsx            # Creator profile & instructor catalog
-│   │   ├── globals.css             # Tailwind v4 import & theme variables
-│   │   ├── icon.png                # Favicon
-│   │   ├── layout.tsx              # Root HTML shell with font configuration
-│   │   ├── not-found.tsx           # Custom 404 error page
-│   │   └── page.tsx                # Home landing page
+│   │   │   └── page.tsx                 # Creator profile & instructor catalog
+│   │   ├── globals.css                  # Tailwind v4 import & theme variables
+│   │   ├── icon.png                     # Favicon
+│   │   ├── layout.tsx                   # Root HTML shell with font configuration
+│   │   ├── not-found.tsx                # Custom 404 error page
+│   │   └── page.tsx                     # Home landing page
 │   ├── components/
 │   │   ├── auth/
-│   │   │   └── AuthLayout.tsx      # Branded authentication template
+│   │   │   └── AuthLayout.tsx           # Branded authentication template
 │   │   ├── home/
-│   │   │   ├── Banner.tsx          # Responsive hero section
-│   │   │   ├── CTA.tsx             # Promotional conversion banner
-│   │   │   ├── ExploreSection.tsx  # Course discovery preview grid
-│   │   │   ├── Footer.tsx          # Site footer with directory links
-│   │   │   ├── GrowthSection.tsx   # Platform impact & statistics
-│   │   │   ├── MarqueeSection.tsx  # Brand partners ticker
-│   │   │   ├── Navbar.tsx          # Header with mobile sliding drawer
-│   │   │   └── Testimonial.tsx     # Learner reviews & feedback
+│   │   │   ├── Banner.tsx               # Responsive hero section
+│   │   │   ├── CTA.tsx                  # Promotional conversion banner
+│   │   │   ├── ExploreSection.tsx       # Course discovery preview grid
+│   │   │   ├── Footer.tsx               # Site footer with directory links
+│   │   │   ├── GrowthSection.tsx        # Platform impact & statistics
+│   │   │   ├── MarqueeSection.tsx       # Brand partners ticker
+│   │   │   ├── Navbar.tsx               # Header with mobile sliding drawer
+│   │   │   └── Testimonial.tsx          # Learner reviews & feedback
 │   │   ├── layout/
-│   │   │   └── PublicLayout.tsx    # Layout wrapper (Navbar + Content + Footer)
+│   │   │   └── PublicLayout.tsx         # Layout wrapper (Navbar + Content + Footer)
 │   │   └── ui/
-│   │       ├── CourseBadges.tsx    # Course difficulty, rating & student pills
-│   │       ├── CourseCard.tsx      # Reusable course card component
-│   │       ├── CourseInclusions.tsx# Sidebar course feature checklist
-│   │       ├── CourseLessonsList.tsx# Sidebar lesson breakdown list
-│   │       └── ReviewCard.tsx      # User review & testimonial card
+│   │       ├── CourseBadges.tsx         # Course difficulty, rating & student pills
+│   │       ├── CourseCard.tsx           # Reusable course card component
+│   │       ├── CourseInclusions.tsx     # Sidebar course feature checklist
+│   │       ├── CourseLessonsList.tsx    # Sidebar lesson breakdown list
+│   │       └── ReviewCard.tsx           # User review & testimonial card
 │   └── fonts/
-│       └── Satoshi-Regular.otf     # Local font binary for Satoshi typography
-├── next.config.ts                  # Next.js configuration
-├── package.json                    # Project dependencies and npm scripts
-├── postcss.config.mjs              # PostCSS plugin pipeline
-└── tsconfig.json                   # TypeScript compiler options
+│       └── Satoshi-Regular.otf          # Local font binary for Satoshi typography
+├── next.config.ts                       # Next.js configuration
+├── package.json                         # Project dependencies and npm scripts
+├── postcss.config.mjs                   # PostCSS plugin pipeline
+└── tsconfig.json                        # TypeScript compiler options
 ```
 
 ---
