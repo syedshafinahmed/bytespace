@@ -4,12 +4,14 @@ import { MdCheckCircle } from "react-icons/md";
 export default function GrowthSection() {
   return (
     <section className="w-full relative bg-[#FAFAFA] py-24 overflow-hidden border-t border-gray-50">
-      {/* Background gradients/blobs */}
-      <div className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none">
-         {/* Top Glow */}
-         <div className="absolute top-[-10%] left-[15%] w-[450px] h-[500px] bg-[#D4FB20] opacity-40 blur-[100px] rounded-full" />
-         {/* Bottom Glow */}
-         <div className="absolute bottom-[10%] left-[-8%] w-[450px] h-[500px] bg-[#D4FB20] opacity-40 blur-[100px] rounded-full" />
+      {/* Background gradients/blobs anchored to content container */}
+      <div className="absolute inset-0 flex justify-center pointer-events-none overflow-hidden z-0">
+        <div className="w-full max-w-[1440px] h-full relative">
+          {/* Top Glow */}
+          <div className="absolute -top-16 left-[10%] w-[450px] h-[500px] bg-[#D4FB20] opacity-40 blur-[120px] rounded-full" />
+          {/* Bottom Glow */}
+          <div className="absolute bottom-[8%] -left-16 w-[450px] h-[500px] bg-[#D4FB20] opacity-40 blur-[120px] rounded-full" />
+        </div>
       </div>
 
       <div className="max-w-[1440px] w-full mx-auto px-8 lg:px-16 relative z-10 flex flex-col gap-32">
