@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { FaStar } from "react-icons/fa";
-import { MdConnectWithoutContact, MdDesignServices, MdLaptopWindows, MdOutlinePhotoCameraFront, MdSignalCellularAlt } from "react-icons/md";
+import { MdConnectWithoutContact, MdDesignServices, MdLaptopWindows, MdOutlinePhotoCameraFront } from "react-icons/md";
 import { IoMdBusiness } from "react-icons/io";
 import { BiCodeBlock } from "react-icons/bi";
+import { CourseCard } from "@/components/ui/CourseCard";
 
 const categories = [
   "Featured", "Music", "Drawing & Painting", "Marketing", "Animation", 
@@ -24,7 +24,7 @@ const courses = [
     image: "/images/explore/e2.png"
   },
   {
-    title: "the Power of Big Data",
+    title: "The Power of Big Data",
     image: "/images/explore/e3.png"
   },
   {
@@ -89,48 +89,11 @@ export default function ExploreSection() {
         {/* Courses Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {courses.map((course, idx) => (
-            <div key={idx} className="bg-white w-[373px] h-[384px] mx-auto rounded-[24px] p-4 shadow-sm border border-[#CED0D3] flex flex-col gap-4">
-              {/* Image wrapper */}
-              <div className="relative w-full h-[196px] rounded-[16px] overflow-hidden bg-gray-200">
-                <Image src={course.image} alt={course.title} fill className="object-cover" />
-              </div>
-
-              {/* Content */}
-              <div className="flex flex-col px-2 pb-2">
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <h3 className="font-poppins font-semibold text-[20px] text-black leading-tight">{course.title}</h3>
-                    <p className="font-satoshi text-[12px] text-[#4F4F4F] mt-1">
-                      by <span className="text-[#003BE2]">purepearl studio</span>
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-1 mt-0.5">
-                    <span className="font-satoshi text-[14px] font-medium text-gray-500">4.5</span>
-                    <FaStar className="w-3.5 h-3.5 text-[#CED0D3] -translate-y-0.5" />
-                  </div>
-                </div>
-
-                {/* Level and Avatars */}
-                <div className="flex items-center gap-4 mt-4">
-                  <div className="flex items-center gap-1.5 bg-[#F5F5F6] text-[#4B4C53] rounded-full px-3 py-1.5">
-                    <MdSignalCellularAlt className="w-4 h-4" />
-                    <span className="font-satoshi text-[11px] font-medium">Beginner</span>
-                  </div>
-                  
-                  <div className="flex items-center">
-                    <Image src="/images/explore/avatar.png" alt="Students" width={100} height={26} className="h-[26px] w-auto" />
-                  </div>
-                </div>
-
-                {/* Price */}
-                <div className="mt-4">
-                  <p className="font-poppins">
-                    <span className="text-[#003BE2] font-semibold text-2xl">$25</span>
-                    <span className="text-gray-400 text-xs font-satoshi ml-1">/lifetime</span>
-                  </p>
-                </div>
-              </div>
-            </div>
+            <CourseCard
+              key={idx}
+              title={course.title}
+              image={course.image}
+            />
           ))}
         </div>
 
