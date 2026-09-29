@@ -35,7 +35,7 @@ export function ReviewCard({
 }: ReviewCardProps) {
   return (
     <div
-      className={`border border-[#E5E7EB] rounded-[24px] w-[723px] h-auto p-8 bg-white shadow-sm flex flex-col ${className}`}
+      className={`border border-[#E5E7EB] rounded-[20px] sm:rounded-[24px] w-full max-w-[723px] h-auto p-5 sm:p-8 bg-white shadow-sm flex flex-col ${className}`}
     >
       {/* Top Header: Avatar + Info & Date */}
       <div className="flex items-center justify-between">

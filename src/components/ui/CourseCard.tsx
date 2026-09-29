@@ -34,7 +34,7 @@ export function CourseCard({
   return (
     <Link
       href={cardHref}
-      className={`bg-white w-[373px] h-[384px] mx-auto rounded-[24px] p-4 shadow-sm border border-[#CED0D3] flex flex-col gap-4 hover:shadow-md transition-all duration-200 cursor-pointer block group ${className}`}
+      className={`bg-white w-full sm:w-[373px] max-w-[373px] h-[384px] mx-auto rounded-[24px] p-4 shadow-sm border border-[#CED0D3] flex flex-col gap-4 hover:shadow-md transition-all duration-200 cursor-pointer block group ${className}`}
     >
       {/* Thumbnail */}
       <div className="relative w-full h-[196px] rounded-[16px] overflow-hidden bg-gray-200">

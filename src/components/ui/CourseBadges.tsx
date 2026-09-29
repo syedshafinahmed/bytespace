@@ -10,7 +10,7 @@ export interface CourseBadgeProps {
 export function CourseBadge({ icon, text, className = "" }: CourseBadgeProps) {
   return (
     <div
-      className={`bg-white rounded-full px-5 h-[40px] flex items-center gap-2 text-[16px] font-medium text-[#242528] font-satoshi shadow-sm ${className}`}
+      className={`bg-white rounded-full px-4 sm:px-5 h-[36px] sm:h-[40px] flex items-center gap-1.5 sm:gap-2 text-sm sm:text-[16px] font-medium text-[#242528] font-satoshi shadow-sm ${className}`}
     >
       <span className="text-[#003BE2] flex items-center justify-center">{icon}</span>
       <span>{text}</span>
@@ -34,7 +34,7 @@ export function CourseBadges({
   className = "",
 }: CourseBadgesProps) {
   return (
-    <div className={`flex flex-wrap items-center gap-3.5 ${className}`}>
+    <div className={`flex flex-wrap items-center gap-2.5 sm:gap-3.5 ${className}`}>
       <CourseBadge
         icon={<MdSignalCellularAlt className="text-[#003BE2]" size={18} />}
         text={level}

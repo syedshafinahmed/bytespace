@@ -47,64 +47,64 @@ export default function CoursePage() {
     return (
         <PublicLayout>
             {/* Blue Header Section */}
-            <section className="relative w-full h-[360px] bg-[#003BE2] pt-[120px] bg-[image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:112px_112px] flex flex-col items-center justify-end">
-                <h1 className="font-poppins font-semibold text-[36px] text-[#F5F5F6] text-center mb-8">
+            <section className="relative w-full h-auto min-h-[300px] sm:h-[360px] bg-[#003BE2] pt-[90px] sm:pt-[120px] bg-[image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:112px_112px] flex flex-col items-center justify-end">
+                <h1 className="font-poppins font-semibold text-2xl sm:text-[36px] text-[#F5F5F6] text-center mb-6 sm:mb-8 px-4">
                     Find Your Next Course
                 </h1>
 
                 {/* Search Area */}
-                <div className="flex items-center justify-center gap-[16px] w-full mb-[69px]">
+                <div className="flex items-center justify-center gap-2 sm:gap-[16px] w-full max-w-[624px] px-4 mb-8 sm:mb-[69px]">
                     {/* Search Bar */}
-                    <div className="flex items-center bg-white rounded-full w-[461px] h-[52px] pl-5 pr-4 flex-shrink-0">
+                    <div className="flex items-center bg-white rounded-full flex-1 sm:flex-initial sm:w-[461px] h-[48px] sm:h-[52px] pl-4 sm:pl-5 pr-3 sm:pr-4 flex-shrink-0 min-w-0">
                         <IoSearchOutline size={20} className="text-[#82868E] flex-shrink-0" />
                         <input
                             type="text"
                             placeholder="Search"
-                            className="flex-1 font-satoshi text-base text-[#242528] placeholder-[#82868E] bg-transparent outline-none px-3 h-full"
+                            className="flex-1 font-satoshi text-sm sm:text-base text-[#242528] placeholder-[#82868E] bg-transparent outline-none px-2 sm:px-3 h-full min-w-0"
                         />
                     </div>
                     {/* Search Button */}
-                    <button className="bg-[#D4FB20] text-[#242528] font-satoshi font-medium text-base w-[147px] h-[48px] rounded-full flex items-center justify-center gap-2 flex-shrink-0 hover:bg-[#c8f018] transition-colors">
+                    <button className="bg-[#D4FB20] text-[#242528] font-satoshi font-medium text-sm sm:text-base w-auto px-4 sm:px-0 sm:w-[147px] h-[48px] rounded-full flex items-center justify-center gap-1.5 sm:gap-2 flex-shrink-0 hover:bg-[#c8f018] transition-colors">
                         Courses <FaChevronDown size={12} />
                     </button>
                 </div>
             </section>
 
             {/* Main Content Area */}
-            <section className="w-full bg-white flex-1 pb-24">
-                <div className="max-w-[1440px] w-full mx-auto px-8 lg:px-16 pt-18">
+            <section className="w-full bg-white flex-1 pb-16 sm:pb-24">
+                <div className="max-w-[1440px] w-full mx-auto px-4 sm:px-8 lg:px-16 pt-8 sm:pt-14 lg:pt-18">
 
                     {/* Filters Row */}
-                    <div className="flex flex-wrap items-center justify-between mb-8 gap-4">
-                        <div className="flex flex-wrap items-center gap-3">
-                            <button className="flex items-center gap-2 border border-[#CED0D3] rounded-full px-5 h-[48px] font-satoshi font-medium text-[16px] text-[#4B4C53] hover:bg-gray-50 transition-colors">
+                    <div className="flex flex-wrap items-center justify-between mb-6 sm:mb-8 gap-3 sm:gap-4">
+                        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+                            <button className="flex items-center gap-2 border border-[#CED0D3] rounded-full px-3.5 sm:px-5 h-[42px] sm:h-[48px] font-satoshi font-medium text-sm sm:text-[16px] text-[#4B4C53] hover:bg-gray-50 transition-colors">
                                 <MdOutlineFilterAlt className="text-[#4B4C53]" size={18} />
                                 <span>Filter</span>
                             </button>
-                            <button className="flex items-center gap-2 border border-[#CED0D3] rounded-full px-5 h-[48px] font-satoshi font-medium text-[16px] text-[#4B4C53] hover:bg-gray-50 transition-colors">
+                            <button className="flex items-center gap-2 border border-[#CED0D3] rounded-full px-3.5 sm:px-5 h-[42px] sm:h-[48px] font-satoshi font-medium text-sm sm:text-[16px] text-[#4B4C53] hover:bg-gray-50 transition-colors">
                                 <MdSignalCellularAlt className="text-[#4B4C53]" size={18} />
                                 <span>Level</span>
                             </button>
-                            <button className="flex items-center gap-2 border border-[#CED0D3] rounded-full px-5 h-[48px] font-satoshi font-medium text-[16px] text-[#4B4C53] hover:bg-gray-50 transition-colors">
+                            <button className="flex items-center gap-2 border border-[#CED0D3] rounded-full px-3.5 sm:px-5 h-[42px] sm:h-[48px] font-satoshi font-medium text-sm sm:text-[16px] text-[#4B4C53] hover:bg-gray-50 transition-colors">
                                 <MdOutlineCategory className="text-[#4B4C53]" size={18} />
                                 <span>Category</span>
                             </button>
                         </div>
-                        <button className="flex items-center gap-2 border border-[#CED0D3] rounded-full px-5 h-[48px] font-satoshi font-medium text-[16px] text-[#4B4C53] hover:bg-gray-50 transition-colors">
+                        <button className="flex items-center gap-2 border border-[#CED0D3] rounded-full px-3.5 sm:px-5 h-[42px] sm:h-[48px] font-satoshi font-medium text-sm sm:text-[16px] text-[#4B4C53] hover:bg-gray-50 transition-colors">
                             <MdOutlineSort className="text-[#4B4C53]" size={18} />
                             <span>Most relevant</span>
                         </button>
                     </div>
 
                     {/* Categories Tabs */}
-                    <div className="flex flex-wrap items-center gap-4 mb-12">
+                    <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 mb-8 sm:mb-12">
                         {categories.map((cat) => {
                             const isActive = activeTab === cat;
                             return (
                                 <button
                                     key={cat}
                                     onClick={() => setActiveTab(cat)}
-                                    className={`px-5 py-2.5 rounded-full font-satoshi text-sm transition-colors ${isActive
+                                    className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full font-satoshi text-xs sm:text-sm transition-colors ${isActive
                                             ? "bg-[#D4FB20] text-black font-medium"
                                             : "bg-[#F5F5F6] text-[#4B4C53] hover:bg-gray-200"
                                         }`}
@@ -116,7 +116,7 @@ export default function CoursePage() {
                     </div>
 
                     {/* Courses Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center">
                         {courses.map((course, idx) => (
                             <CourseCard
                                 key={idx}
@@ -125,7 +125,7 @@ export default function CoursePage() {
                             />
                         ))}
                     </div>
-                    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="mt-6 sm:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center">
                         {courses.map((course, idx) => (
                             <CourseCard
                                 key={idx}
@@ -134,7 +134,7 @@ export default function CoursePage() {
                             />
                         ))}
                     </div>
-                    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="mt-6 sm:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center">
                         {courses.map((course, idx) => (
                             <CourseCard
                                 key={idx}
@@ -145,21 +145,21 @@ export default function CoursePage() {
                     </div>
 
                     {/* Pagination */}
-                    <div className="mt-16 flex items-center justify-center gap-6">
+                    <div className="mt-12 sm:mt-16 flex items-center justify-center gap-3 sm:gap-6">
                         <button
                             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-                            className="w-[56px] h-[48px] rounded-full border border-[#CED0D3] flex items-center justify-center text-[#242528] hover:bg-gray-50 transition-colors flex-shrink-0"
+                            className="w-[48px] sm:w-[56px] h-[42px] sm:h-[48px] rounded-full border border-[#CED0D3] flex items-center justify-center text-[#242528] hover:bg-gray-50 transition-colors flex-shrink-0"
                             aria-label="Previous page"
                         >
                             <FiChevronLeft size={20} />
                         </button>
 
-                        <div className="flex items-center gap-6">
+                        <div className="flex items-center gap-3 sm:gap-6">
                             {[1, 2, 3, 4, 5].map((page) => (
                                 <button
                                     key={page}
                                     onClick={() => setCurrentPage(page)}
-                                    className={`font-satoshi text-base font-bold text-[#242528] transition-colors ${
+                                    className={`font-satoshi text-sm sm:text-base font-bold text-[#242528] transition-colors ${
                                         currentPage === page
                                             ? "opacity-40"
                                             : "opacity-100 hover:opacity-80"
@@ -172,7 +172,7 @@ export default function CoursePage() {
 
                         <button
                             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, 5))}
-                            className="w-[56px] h-[48px] rounded-full border border-[#CED0D3] flex items-center justify-center text-[#242528] hover:bg-gray-50 transition-colors flex-shrink-0"
+                            className="w-[48px] sm:w-[56px] h-[42px] sm:h-[48px] rounded-full border border-[#CED0D3] flex items-center justify-center text-[#242528] hover:bg-gray-50 transition-colors flex-shrink-0"
                             aria-label="Next page"
                         >
                             <FiChevronRight size={20} />
