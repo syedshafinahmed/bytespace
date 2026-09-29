@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaStar } from "react-icons/fa";
 import { MdSignalCellularAlt } from "react-icons/md";
 
@@ -11,6 +12,7 @@ export interface CourseCardProps {
   price?: number;
   starColor?: string;
   className?: string;
+  href?: string;
 }
 
 export function CourseCard({
@@ -22,14 +24,26 @@ export function CourseCard({
   price = 25,
   starColor = "#CED0D3",
   className = "",
+  href,
 }: CourseCardProps) {
+  const slug = encodeURIComponent(
+    title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")
+  );
+  const cardHref = href || `/courses/${slug}?title=${encodeURIComponent(title)}&image=${encodeURIComponent(image)}`;
+
   return (
-    <div
-      className={`bg-white w-[373px] h-[384px] mx-auto rounded-[24px] p-4 shadow-sm border border-[#CED0D3] flex flex-col gap-4 ${className}`}
+    <Link
+      href={cardHref}
+      className={`bg-white w-[373px] h-[384px] mx-auto rounded-[24px] p-4 shadow-sm border border-[#CED0D3] flex flex-col gap-4 hover:shadow-md hover:border-[#003BE2]/40 transition-all duration-200 cursor-pointer block group ${className}`}
     >
       {/* Thumbnail */}
       <div className="relative w-full h-[196px] rounded-[16px] overflow-hidden bg-gray-200">
-        <Image src={image} alt={title} fill className="object-cover" />
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover group-hover:scale-105 transition-transform duration-300"
+        />
       </div>
 
       {/* Content */}
@@ -37,7 +51,7 @@ export function CourseCard({
         {/* Title row */}
         <div className="flex items-start justify-between gap-2">
           <div>
-            <h3 className="font-poppins font-semibold text-[20px] text-black leading-tight line-clamp-1">
+            <h3 className="font-poppins font-semibold text-[20px] text-black leading-tight line-clamp-1 group-hover:text-[#003BE2] transition-colors">
               {title}
             </h3>
             <p className="font-satoshi text-[12px] text-[#4F4F4F] mt-1">
@@ -80,6 +94,6 @@ export function CourseCard({
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
