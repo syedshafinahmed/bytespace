@@ -16,7 +16,7 @@
 
 **ByteSpace** is an online course and digital asset learning marketplace for digital creators, designers, and developers. The application delivers a platform to discover, learn, and master creative and technical disciplines including UI/UX design, marketing, data, development, and entrepreneurship.
 
-The platform includes a landing experience, searchable and filterable course catalog, curriculum detail pages with module breakdowns and review systems, creator profiles, authentication views, and fully responsive layouts across mobile, tablet, and desktop viewports.
+The platform includes a landing experience, searchable and filterable course catalog, curriculum detail pages with module breakdowns and review systems, creator profiles, authentication views, element-based skeleton loaders, comprehensive SEO metadata, and fully responsive layouts across mobile, tablet, and desktop viewports.
 
 ---
 
@@ -50,6 +50,20 @@ The platform includes a landing experience, searchable and filterable course cat
 - **Instructor Overview**: Creator banner with avatar, bio, total courses count, student count, average ratings, and interactive Follow toggle.
 - **Published Courses**: Filterable catalog of courses created by the instructor.
 
+### ⚡ Element-Based Skeleton Loaders
+- **Zero-CLS Loading Experience**: Element-based skeleton layouts designed to match exact page geometries rather than generic spinning indicators.
+- **Catalog Skeleton (`CoursesPageSkeleton`)**: Replicates search bar, category pills, level filters, course card grids, and pagination controls.
+- **Creator Skeleton (`CreatorPageSkeleton`)**: Replicates creator avatar, header copy, metrics counters, follow action, and published course card grid.
+- **Course Details Skeleton (`CourseDetailsSkeleton`)**: Mirrors hero background, title/author placeholders, badges, video preview player, tabs, modules, and sticky checkout sidebar.
+- **Route-Level Streaming & Fallback**: Standardized Next.js App Router `loading.tsx` fallbacks combined with client mount state transitions for smooth navigation across all devices.
+
+### 🔍 Comprehensive SEO & Social Metadata
+- **Dynamic Metadata & Title Templating**: Base URL configuration via `metadataBase`, descriptive page titles with `%s | ByteSpace` pattern, and curated keywords for search indexing.
+- **Social Sharing Previews**: Open Graph and Twitter `summary_large_image` cards for rich previews across platforms.
+- **Schema.org Structured Data**: Embedded `EducationalOrganization` JSON-LD schema providing structured context on branding, logo, and organization metadata.
+- **Web App Manifest & Favicons**: Integrated `site.webmanifest` with brand theme color (`#003BE2`), multiple PNG favicon dimensions (16x16, 32x32), and Apple touch icons.
+- **Environment-Driven Configuration**: Fully decoupled site URL and OG image endpoints via `.env`.
+
 ### 🔐 Authentication (`/login`, `/signup`)
 - **Shared Auth Layout**: Split-screen design featuring promotional branding panel alongside form container.
 - **Sign In (`/login`)**: Email and password input fields, sign-in action, and social authentication buttons (Google, Facebook).
@@ -64,12 +78,13 @@ The platform includes a landing experience, searchable and filterable course cat
 
 | Layer | Technology | Details |
 |---|---|---|
-| **Framework** | Next.js 16.3.6 | App Router, Server and Client Components |
+| **Framework** | Next.js 16.3.6 | App Router, Server and Client Components, Streaming `loading.tsx` |
 | **UI Library** | React 19.2.8 | Latest React release with React Compiler (`babel-plugin-react-compiler`) |
-| **Language** | TypeScript 5 | Strict static typing across components and data interfaces |
+| **Language** | TypeScript 5 | Strict static typing across components, skeletons, and data interfaces |
 | **Styling** | TailwindCSS 4 | PostCSS engine (`@tailwindcss/postcss`), custom design tokens |
 | **Icons** | React Icons 5.7.0 | Material Design (`md`), Ionicons (`io5`), FontAwesome (`fa`), Feather (`fi`) |
 | **Typography** | Next Font | Poppins (Google Fonts) & Satoshi (Local Font) |
+| **SEO & OpenGraph** | Next Metadata API | Schema.org JSON-LD, Open Graph, Twitter Cards, Web Manifest |
 
 ---
 
@@ -77,7 +92,10 @@ The platform includes a landing experience, searchable and filterable course cat
 
 ```
 bytespace/
+├── .env.example                         # Environment variable template
 ├── public/
+│   ├── favicon.png                      # Standard brand favicon
+│   ├── site.webmanifest                 # Web application manifest
 │   └── images/
 │       ├── auth/                        # Authentication illustrations & brand assets
 │       ├── banner/                      # Hero 3D decorative shapes & frames
@@ -96,13 +114,17 @@ bytespace/
 │   │   │   ├── login/page.tsx           # Sign in page
 │   │   │   └── signup/page.tsx          # Registration page
 │   │   ├── courses/
-│   │   │   ├── [id]/page.tsx            # Course details, curriculum & reviews
+│   │   │   ├── [id]/
+│   │   │   │   ├── loading.tsx          # Course details route skeleton fallback
+│   │   │   │   └── page.tsx             # Course details, curriculum & reviews
+│   │   │   ├── loading.tsx              # Course catalog route skeleton fallback
 │   │   │   └── page.tsx                 # Course catalog with filters & search
 │   │   ├── creators/
+│   │   │   ├── loading.tsx              # Creator profile route skeleton fallback
 │   │   │   └── page.tsx                 # Creator profile & instructor catalog
 │   │   ├── globals.css                  # Tailwind v4 import & theme variables
-│   │   ├── icon.png                     # Favicon
-│   │   ├── layout.tsx                   # Root HTML shell with font configuration
+│   │   ├── icon.png                     # Favicon asset
+│   │   ├── layout.tsx                   # Root HTML shell with fonts, SEO & JSON-LD
 │   │   ├── not-found.tsx                # Custom 404 error page
 │   │   └── page.tsx                     # Home landing page
 │   ├── components/
@@ -119,6 +141,11 @@ bytespace/
 │   │   │   └── Testimonial.tsx          # Learner reviews & feedback
 │   │   ├── layout/
 │   │   │   └── PublicLayout.tsx         # Layout wrapper (Navbar + Content + Footer)
+│   │   ├── skeletons/
+│   │   │   ├── CourseCardSkeleton.tsx   # Reusable course card loader
+│   │   │   ├── CourseDetailsSkeleton.tsx# Detailed course view skeleton
+│   │   │   ├── CoursesPageSkeleton.tsx  # Course catalog page skeleton
+│   │   │   └── CreatorPageSkeleton.tsx  # Creator profile page skeleton
 │   │   └── ui/
 │   │       ├── CourseBadges.tsx         # Course difficulty, rating & student pills
 │   │       ├── CourseCard.tsx           # Reusable course card component
@@ -141,9 +168,9 @@ bytespace/
 | Route | Description |
 |---|---|
 | `/` | Landing page featuring hero, course explorer, growth metrics, and reviews |
-| `/courses` | Searchable course catalog with category tabs, level filters, and pagination |
-| `/courses/[id]` | Detailed course syllabus, video preview, tabbed content, and enrollment sidebar |
-| `/creators` | Creator profile page with bio, stats, and instructor courses |
+| `/courses` | Searchable course catalog with category tabs, level filters, pagination, and skeleton loading |
+| `/courses/[id]` | Detailed course syllabus, video preview, tabbed content, enrollment sidebar, and skeleton loading |
+| `/creators` | Creator profile page with bio, stats, instructor courses, and skeleton loading |
 | `/not-found` | Custom 404 page for non-existent routes |
 
 ### Auth Pages
@@ -157,7 +184,7 @@ bytespace/
 ## 🎨 Design System
 
 - **Color Palette**:
-  - Primary Blue: `#003BE2` (used in headers, accents, and brand badges)
+  - Primary Blue: `#003BE2` (used in headers, accents, brand badges, and theme)
   - Volt Accent: `#D4FB20` (used in primary buttons, rating badges, active pills)
   - Neutral Dark: `#242528` (used for headings, dark card text)
   - Slate Gray: `#4B4C53` / `#82868E` (used for secondary body text)
@@ -184,17 +211,27 @@ bytespace/
    cd bytespace
    ```
 
-2. **Install dependencies**:
+2. **Configure environment variables**:
+   ```bash
+   cp .env.example .env
+   ```
+   Configure your environment variables:
+   ```env
+   NEXT_PUBLIC_SITE_URL=https://bytespace-ssa.vercel.app
+   NEXT_PUBLIC_OG_IMAGE_URL=https://res.cloudinary.com/dwi0rh2ti/image/upload/v1790702821/bytespace-og_x5iutv.png
+   ```
+
+3. **Install dependencies**:
    ```bash
    npm install
    ```
 
-3. **Start the local development server**:
+4. **Start the local development server**:
    ```bash
    npm run dev
    ```
 
-4. **View in browser**:
+5. **View in browser**:
    Navigate to [http://localhost:3000](http://localhost:3000)
 
 ---
