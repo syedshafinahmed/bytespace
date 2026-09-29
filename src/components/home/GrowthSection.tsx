@@ -58,13 +58,13 @@ export default function GrowthSection() {
               </div>
 
               {/* Stat Card - Large Screen Only */}
-              <div className="hidden lg:block absolute top-40 md:top-48 -right-4 md:-right-8 z-20 w-[240px] md:w-[260px]">
+              <div className="hidden lg:block absolute top-55 -right-21 z-20 w-[240px] md:w-[260px]">
                 <Image src="/images/growth/stat.png" alt="Learning Progress" width={280} height={160} className="w-full h-auto drop-shadow-2xl rounded-[20px]" />
               </div>
 
               {/* Mask (Lime Squiggle) - Large Screen Only */}
-              <div className="hidden lg:block absolute top-16 md:top-30 right-1 z-30 w-[100px] md:w-[120px]">
-                <Image src="/images/growth/mask.png" alt="Decoration" width={140} height={140} className="w-full h-auto drop-shadow-lg" />
+              <div className="hidden lg:block absolute top-20 -right-30 z-30 w-[215px]">
+                <Image src="/images/growth/mask.png" alt="Decoration" width={215} height={215} className="w-full h-auto drop-shadow-lg" />
               </div>
             </div>
           </div>

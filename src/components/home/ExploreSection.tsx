@@ -17,27 +17,27 @@ const categories = [
 const courses = [
   {
     title: "Learn Figma from Basic",
-    image: "/images/explore/e1.png"
+    image: "/images/explore/explore1.png"
   },
   {
     title: "Build Digital Asset: A Comprehensive Guide",
-    image: "/images/explore/e2.png"
+    image: "/images/explore/explore2.png"
   },
   {
     title: "The Power of Big Data",
-    image: "/images/explore/e3.png"
+    image: "/images/explore/explore3.png"
   },
   {
     title: "Balancing Productivity an...",
-    image: "/images/explore/e4.png"
+    image: "/images/explore/explore4.png"
   },
   {
     title: "Mastering Money Manage...",
-    image: "/images/explore/e5.png"
+    image: "/images/explore/explore5.png"
   },
   {
     title: "From Idea to Startup Succ...",
-    image: "/images/explore/e6.png"
+    image: "/images/explore/explore6.png"
   }
 ];
 
