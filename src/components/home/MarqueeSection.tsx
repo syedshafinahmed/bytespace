@@ -1,11 +1,11 @@
 import Image from "next/image";
 
 const logos = [
-  "m1.png",
-  "m2.png",
-  "m3.png",
-  "m4.png",
-  "m5.png",
+  "marquee1.png",
+  "marquee2.png",
+  "marquee3.png",
+  "marquee4.png",
+  "marquee5.png",
 ];
 
 export default function MarqueeSection() {
