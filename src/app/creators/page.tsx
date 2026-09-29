@@ -20,7 +20,7 @@ const courses = [
         image: "/images/explore/explore3.png"
     },
     {
-        title: "Balancing Productivity an...",
+        title: "Balancing Productivity and Life",
         image: "/images/explore/explore4.png"
     },
     {

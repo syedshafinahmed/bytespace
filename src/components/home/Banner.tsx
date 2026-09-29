@@ -120,7 +120,7 @@ export default function Banner() {
         {/* Floating Cards (Shown on mobile & large screen) */}
         <div className="relative flex-1 mx-auto w-full max-w-[900px] min-h-[380px] sm:min-h-[460px] lg:min-h-0">
           {/* UI/UX Design */}
-          <div className="absolute top-4 sm:top-14 lg:top-33 left-2 sm:left-10 lg:left-35 bg-white rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl px-3 py-2 sm:px-4 sm:py-3 w-[150px] sm:w-[185px] lg:w-[208px] z-30 transition-all">
+          <div className="absolute top-15 sm:top-14 lg:top-33 left-2 sm:left-10 lg:left-35 bg-white rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl px-3 py-2 sm:px-4 sm:py-3 w-[150px] sm:w-[185px] lg:w-[208px] z-30 transition-all">
             <p className="font-satoshi font-medium text-xs sm:text-sm lg:text-base text-[#242528]">UI/UX Design</p>
             <p className="font-satoshi text-[10px] sm:text-[11px] lg:text-[12px] text-[#82868E] mt-0.5">300 Coaches · 500+ Students</p>
           </div>

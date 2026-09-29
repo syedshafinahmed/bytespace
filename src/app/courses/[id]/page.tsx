@@ -137,30 +137,49 @@ function CourseDetailsContent({
     <PublicLayout>
       <div className="relative w-full bg-white">
         {/* Blue Header Background */}
-        <section className="absolute top-0 left-0 w-full h-[540px] sm:h-[680px] lg:h-[957px] bg-[#003BE2] bg-[image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:112px_112px]" />
+        <section className="absolute top-0 left-0 w-full h-[450px] sm:h-[680px] lg:h-[957px] bg-[#003BE2] bg-[image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:112px_112px]" />
 
         {/* Main Content Area */}
         <div className="relative z-10 max-w-[1440px] w-full mx-auto px-4 sm:px-8 lg:px-16 pt-[96px] sm:pt-[140px] pb-16 sm:pb-28">
           {/* Header Row */}
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 sm:gap-6">
-            <div className="max-w-[850px]">
+            <div className="w-full">
               <h1 className="font-poppins font-semibold text-2xl sm:text-[36px] text-[#F5F5F6] leading-tight">
                 {courseTitle}
               </h1>
               <p className="font-satoshi text-white/90 text-sm sm:text-base md:text-[18px] mt-2">
                 Unlock the Power of Digital Creation with Expert Guidance
               </p>
-              <p className="font-satoshi font-medium text-[#F1F4FE] text-base sm:text-xl mt-4 sm:mt-6 text-white/80">
-                by{" "}
-                <Link
-                  href="/creators"
-                  className="text-[#D4FB20] font-medium hover:underline transition-colors"
+              <div className="flex items-center justify-between gap-3 mt-4 sm:mt-6">
+                <p className="font-satoshi font-medium text-[#F1F4FE] text-base sm:text-xl text-white/80">
+                  by{" "}
+                  <Link
+                    href="/creators"
+                    className="text-[#D4FB20] font-medium hover:underline transition-colors"
+                  >
+                    purepearl studio
+                  </Link>
+                </p>
+
+                {/* Share Button */}
+                <button
+                  onClick={() => {
+                    if (navigator.share) {
+                      navigator.share({ title: courseTitle, url: window.location.href });
+                    } else {
+                      navigator.clipboard.writeText(window.location.href);
+                      alert("Course link copied to clipboard!");
+                    }
+                  }}
+                  className="flex md:hidden bg-[#D4FB20] text-[#242528] h-[36px] px-4 justify-center items-center rounded-full gap-1.5 font-satoshi shadow-sm flex-shrink-0"
                 >
-                  purepearl studio
-                </Link>
-              </p>
+                  <IoShareSocialOutline size={16} />
+                  <span className="text-[#242528] text-sm font-medium">Share</span>
+                </button>
+              </div>
             </div>
 
+            {/* Share Button */}
             <button
               onClick={() => {
                 if (navigator.share) {
@@ -170,7 +189,7 @@ function CourseDetailsContent({
                   alert("Course link copied to clipboard!");
                 }
               }}
-              className="bg-[#D4FB20] text-[#242528] w-[122px] h-[40px] flex justify-center items-center rounded-full px-6 py-2.5 gap-2 font-satoshi self-start md:self-auto shadow-sm flex-shrink-0"
+              className="hidden md:flex bg-[#D4FB20] text-[#242528] w-[122px] h-[40px] justify-center items-center rounded-full px-6 py-2.5 gap-2 font-satoshi md:self-auto shadow-sm flex-shrink-0"
             >
               <IoShareSocialOutline size={18} />
               <span className="text-[#242528] text-base font-medium">Share</span>
@@ -427,28 +446,27 @@ function CourseDetailsContent({
                     </h3>
 
                     {/* Filter Pills */}
-                    <div className="flex flex-wrap items-center gap-2.5 mb-6">
+                    <div className="flex items-center gap-1 sm:gap-2.5 mb-6 w-full sm:w-auto">
                       <button
                         onClick={() => setSelectedRating("all")}
-                        className={`px-5 py-2 rounded-full font-satoshi text-sm font-medium transition-colors cursor-pointer ${selectedRating === "all"
+                        className={`h-[34px] sm:h-11 px-2.5 sm:px-5 rounded-full font-satoshi text-xs sm:text-sm font-medium flex items-center justify-center transition-colors cursor-pointer flex-shrink-0 ${selectedRating === "all"
                             ? "bg-[#D4FB20] text-[#242528]"
                             : "bg-[#F5F5F6] text-[#4B4C53] hover:bg-gray-200"
                           }`}
                       >
-                        All rating
+                        All<span className="hidden sm:inline"> rating</span>
                       </button>
                       {[5, 4, 3, 2, 1].map((num) => (
                         <button
                           key={num}
                           onClick={() => setSelectedRating(num)}
-                          className={`px-4 py-2 rounded-full font-satoshi text-base font-medium flex items-center gap-1 transition-colors cursor-pointer ${selectedRating === num
+                          className={`flex-1 sm:flex-initial h-[34px] sm:h-11 px-1 sm:px-4 rounded-full font-satoshi text-xs sm:text-base font-medium flex items-center justify-center gap-0.5 sm:gap-1 transition-colors cursor-pointer ${selectedRating === num
                               ? "bg-[#D4FB20] text-[#242528]"
                               : "bg-[#F5F5F6] text-[#4B4C53] hover:bg-gray-200"
                             }`}
                         >
                           <IoStarSharp
-                            size={24}
-                            className={selectedRating === num ? "text-[#242528]" : "text-[#4B4C53]"}
+                            className={`w-3.5 h-3.5 sm:w-6 sm:h-6 flex-shrink-0 ${selectedRating === num ? "text-[#242528]" : "text-[#4B4C53]"}`}
                           />
                           <span>{num}</span>
                         </button>

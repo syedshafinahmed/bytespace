@@ -27,15 +27,15 @@ const courses = [
         image: "/images/explore/explore3.png"
     },
     {
-        title: "Balancing Productivity an...",
+        title: "Balancing Productivity and Life",
         image: "/images/explore/explore4.png"
     },
     {
-        title: "Mastering Money Manage...",
+        title: "Mastering Money Management",
         image: "/images/explore/explore5.png"
     },
     {
-        title: "From Idea to Startup Succ...",
+        title: "From Idea to Startup Success",
         image: "/images/explore/explore6.png"
     }
 ];

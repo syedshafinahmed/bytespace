@@ -47,23 +47,23 @@ export default function GrowthSection() {
           {/* Right Image Composition */}
           <div className="w-full lg:w-[50%] relative flex justify-center lg:justify-end mt-8 lg:mt-0">
             <div className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[500px] h-auto lg:h-[480px] flex items-end justify-center">
-              {/* Card - Large Screen Only */}
-              <div className="hidden lg:block absolute -top-5 -left-4 md:-left-12 z-0 w-[300px] md:w-[320px]">
-                <Image src="/images/growth/card.png" alt="Course Card" width={340} height={240} className="w-full h-auto drop-shadow-xl rounded-[24px]" />
+              {/* Card */}
+              <div className="absolute -top-3 left-10 sm:-top-5 sm:-left-8 lg:-top-5 lg:-left-12 z-0 w-[140px] sm:w-[200px] lg:w-[320px]">
+                <Image src="/images/growth/card.png" alt="Course Card" width={340} height={240} className="w-full h-auto drop-shadow-xl rounded-[16px] sm:rounded-[24px]" />
               </div>
 
-              {/* Main Image (right.png) - Responsive on mobile, preserved on large screen */}
-              <div className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-none lg:absolute lg:top-1 lg:-left-20 lg:z-10 lg:w-[777px] lg:h-[840px]">
+              {/* Main Image */}
+              <div className="relative w-full max-w-[270px] sm:max-w-[360px] lg:max-w-none lg:absolute lg:top-1 lg:-left-20 lg:z-10 lg:w-[777px] lg:h-[840px]">
                 <Image src="/images/growth/right.png" alt="Student Learning" width={677} height={740} className="w-full h-auto object-contain object-bottom drop-shadow-2xl" />
               </div>
 
-              {/* Stat Card - Large Screen Only */}
-              <div className="hidden lg:block absolute top-55 -right-21 z-20 w-[240px] md:w-[260px]">
-                <Image src="/images/growth/stat.png" alt="Learning Progress" width={280} height={160} className="w-full h-auto drop-shadow-2xl rounded-[20px]" />
+              {/* Stat Card */}
+              <div className="absolute top-19 sm:top-38 lg:top-55 right-10 sm:-right-6 lg:-right-21 z-20 w-[125px] sm:w-[170px] lg:w-[260px]">
+                <Image src="/images/growth/stat.png" alt="Learning Progress" width={280} height={160} className="w-full h-auto drop-shadow-2xl rounded-[14px] sm:rounded-[20px]" />
               </div>
 
-              {/* Mask (Lime Squiggle) - Large Screen Only */}
-              <div className="hidden lg:block absolute top-20 -right-30 z-30 w-[215px]">
+              {/* Mask (Lime Squiggle) */}
+              <div className="absolute top-6 sm:top-8 lg:top-20 right-8 sm:-right-4 lg:-right-30 z-30 w-[85px] sm:w-[130px] lg:w-[215px]">
                 <Image src="/images/growth/mask.png" alt="Decoration" width={215} height={215} className="w-full h-auto drop-shadow-lg" />
               </div>
             </div>
