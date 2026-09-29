@@ -6,11 +6,12 @@ import Link from "next/link";
 import { use, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { FaPlay } from "react-icons/fa";
-import { IoShareSocialOutline, IoCheckmarkCircle } from "react-icons/io5";
+import { IoShareSocialOutline, IoCheckmarkCircle, IoStarSharp } from "react-icons/io5";
 import { MdOutlineVideocam } from "react-icons/md";
 import { CourseBadges } from "@/components/ui/CourseBadges";
 import { CourseLessonsList } from "@/components/ui/CourseLessonsList";
 import { CourseInclusions } from "@/components/ui/CourseInclusions";
+import { ReviewCard } from "@/components/ui/ReviewCard";
 
 const courseTitlesMap: Record<string, string> = {
   "learn-figma-from-basic": "Learn Figma from Basic",
@@ -58,6 +59,57 @@ const modulesList = [
   },
 ];
 
+const ratingBreakdown = [
+  { stars: 5, percentage: 82, count: 720 },
+  { stars: 4, percentage: 32, count: 120 },
+  { stars: 3, percentage: 10, count: 21 },
+  { stars: 2, percentage: 5, count: 12 },
+  { stars: 1, percentage: 7, count: 16 },
+];
+
+const reviewsList = [
+  {
+    id: 1,
+    author: "PurePearl Studio",
+    role: "UI/UX Designer",
+    avatar: "/images/courses/review1.png",
+    date: "a year ago",
+    rating: 5,
+    content:
+      "“The course provided me with a comprehensive understanding of digital asset creation. The lessons were in-depth, practical, and immediately applicable to my work. Highly recommended!”",
+  },
+  {
+    id: 2,
+    author: "Albert Flores",
+    role: "UI/UX Designer",
+    avatar: "/images/courses/review2.png",
+    date: "a year ago",
+    rating: 4,
+    content:
+      "This course transformed my approach to digital design. The combination of theory, hands-on exercises, and real-world applications made it a truly enriching experience. Excited to implement what I've learned!",
+  },
+  {
+    id: 3,
+    author: "Cody Fisher",
+    role: "UI/UX Designer",
+    avatar: "/images/courses/review3.png",
+    date: "a year ago",
+    rating: 3,
+    content:
+      "The project showcase and critique module created a collaborative environment where I could showcase my work, receive valuable feedback, and refine my skills. It added a unique and valuable dimension to the learning process.",
+  },
+  {
+    id: 4,
+    author: "Brooklyn Simmons",
+    role: "UI/UX Designer",
+    avatar: "/images/courses/review4.png",
+    date: "a year ago",
+    rating: 5,
+    content:
+      "The lessons on optimizing digital assets for various platforms were particularly insightful. The course adapts to the evolving digital landscape, and the engaging content kept me motivated throughout.",
+  },
+];
+
 function CourseDetailsContent({
   paramsPromise,
 }: {
@@ -66,6 +118,12 @@ function CourseDetailsContent({
   const params = use(paramsPromise);
   const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<"About" | "Lesson" | "Lessons" | "Reviews">("About");
+  const [selectedRating, setSelectedRating] = useState<number | "all">("all");
+
+  const filteredReviews =
+    selectedRating === "all"
+      ? reviewsList
+      : reviewsList.filter((r) => r.rating === selectedRating);
 
   const rawId = params?.id ? decodeURIComponent(params.id) : "";
   const queryTitle = searchParams.get("title");
@@ -153,8 +211,8 @@ function CourseDetailsContent({
                       key={tab}
                       onClick={() => setActiveTab(tab)}
                       className={`h-11 px-6 rounded-full font-satoshi text-[16px] font-medium flex items-center justify-center transition-colors cursor-pointer ${isActive
-                          ? "bg-[#D4FB20] text-[#242528]"
-                          : "bg-[#F5F5F6] text-[#4B4C53] hover:bg-gray-200"
+                        ? "bg-[#D4FB20] text-[#242528]"
+                        : "bg-[#F5F5F6] text-[#4B4C53] hover:bg-gray-200"
                         }`}
                     >
                       {tab}
@@ -311,13 +369,99 @@ function CourseDetailsContent({
               )}
 
               {activeTab === "Reviews" && (
-                <div className="mt-8">
-                  <h2 className="font-poppins font-semibold text-2xl text-[#242528] mb-4">
-                    Student Reviews
-                  </h2>
-                  <p className="font-satoshi text-[#4B4C53] text-base">
-                    4.8 out of 5 stars based on 172 reviews.
-                  </p>
+                <div className="mt-10 flex flex-col">
+                  {/* What Learners Are Saying */}
+                  <div>
+                    <h2 className="font-poppins font-semibold text-xl text-[#242528] mb-6">
+                      What Learners Are Saying
+                    </h2>
+                    <p className="font-satoshi text-base text-[#4B4C53] leading-relaxed mb-8">
+                      Discover what our learners have to say about their experience with &apos;Build Digital Assets: A <br /> Comprehensive Guide.&apos; Read reviews and ratings from individuals who have embarked on the <br /> transformative journey of mastering digital asset creation.
+                    </p>
+                  </div>
+
+                  {/* Ratings Summary Card */}
+                  <div className="border border-[#E5E7EB] w-[723px] h-[226px] rounded-[16px] p-6 md:p-8 bg-white shadow-sm flex flex-col sm:flex-row items-center gap-6 md:gap-8">
+                    {/* Score Box */}
+                    <div className="w-[129px] h-[140px] rounded-[8px] bg-[#D4FB20] flex flex-col items-center justify-center flex-shrink-0">
+                      <span className="font-satoshi text-sm font-medium text-[#242528] mb-1">
+                        Ratings
+                      </span>
+                      <span className="font-poppins font-semibold text-[36px] text-[#242528]">
+                        4.7
+                      </span>
+                    </div>
+
+                    {/* Breakdown Bars */}
+                    <div className="flex-1 w-full space-y-3">
+                      {ratingBreakdown.map((row) => (
+                        <div key={row.stars} className="flex items-center gap-3">
+                          {/* Progress Track */}
+                          <div className="flex-1 h-2 bg-[#F0F2F5] rounded-full overflow-hidden">
+                            <div
+                              className="h-full bg-[#D4FB20] rounded-full"
+                              style={{ width: `${row.percentage}%` }}
+                            />
+                          </div>
+
+                          {/* 5 Stars */}
+                          <div className="flex items-center gap-0.5 flex-shrink-0">
+                            {[...Array(5)].map((_, i) => (
+                              <IoStarSharp key={i} size={24} className="text-[#4B4C53]" />
+                            ))}
+                          </div>
+
+                          {/* Count */}
+                          <span className="font-satoshi text-base text-[#4B4C53] w-8 text-right font-medium flex-shrink-0">
+                            {row.count}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Individual Reviews Section */}
+                  <div className="mt-6">
+                    <h3 className="font-poppins font-semibold text-xl text-[#242528] mb-6">
+                      Individual Reviews:
+                    </h3>
+
+                    {/* Filter Pills */}
+                    <div className="flex flex-wrap items-center gap-2.5 mb-6">
+                      <button
+                        onClick={() => setSelectedRating("all")}
+                        className={`px-5 py-2 rounded-full font-satoshi text-sm font-medium transition-colors cursor-pointer ${selectedRating === "all"
+                            ? "bg-[#D4FB20] text-[#242528]"
+                            : "bg-[#F5F5F6] text-[#4B4C53] hover:bg-gray-200"
+                          }`}
+                      >
+                        All rating
+                      </button>
+                      {[5, 4, 3, 2, 1].map((num) => (
+                        <button
+                          key={num}
+                          onClick={() => setSelectedRating(num)}
+                          className={`px-4 py-2 rounded-full font-satoshi text-base font-medium flex items-center gap-1 transition-colors cursor-pointer ${selectedRating === num
+                              ? "bg-[#D4FB20] text-[#242528]"
+                              : "bg-[#F5F5F6] text-[#4B4C53] hover:bg-gray-200"
+                            }`}
+                        >
+                          <IoStarSharp
+                            size={24}
+                            className={selectedRating === num ? "text-[#242528]" : "text-[#4B4C53]"}
+                          />
+                          <span>{num}</span>
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Review Cards */}
+                    <div className="space-y-6">
+                      {filteredReviews.map((review) => (
+                        <ReviewCard key={review.id} review={review} />
+                      ))}
+                    </div>
+                  </div>
                 </div>
               )}
             </div>

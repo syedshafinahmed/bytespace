@@ -1,5 +1,4 @@
-import React from "react";
-import { FaStar } from "react-icons/fa";
+import { IoStarSharp } from "react-icons/io5";
 import { MdOutlineGroup, MdSignalCellularAlt } from "react-icons/md";
 
 export interface CourseBadgeProps {
@@ -41,7 +40,7 @@ export function CourseBadges({
         text={level}
       />
       <CourseBadge
-        icon={<FaStar className="text-[#003BE2]" size={15} />}
+        icon={<IoStarSharp className="text-[#003BE2]" size={15} />}
         text={`${rating} (${reviewsCount} reviews)`}
       />
       <CourseBadge
