@@ -12,7 +12,7 @@ interface AuthLayoutProps {
 export function AuthLayout({ children, title, description }: AuthLayoutProps) {
   return (
     <div
-      className="min-h-screen bg-[#254DF5] bg-[image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:112px_112px] text-white flex flex-col lg:flex-row relative overflow-hidden"
+      className="min-h-screen bg-[#003BE2] bg-[image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:112px_112px] text-white flex flex-col lg:flex-row relative overflow-hidden"
     >
       {/* ── Left Column ── */}
       <div className="w-full lg:w-1/2 p-8 lg:p-16 xl:p-24 flex flex-col">

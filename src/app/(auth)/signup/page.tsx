@@ -33,7 +33,6 @@ export default function SignupPage() {
           <label className="block text-sm font-medium text-[#242528] mb-1.5">Password</label>
           <input
             type="password"
-            // placeholder="••••••••"
             placeholder="**********"
             className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#254DF5]/40 focus:border-[#254DF5] transition-all placeholder:text-gray-300"
           />
@@ -42,7 +41,7 @@ export default function SignupPage() {
         <div className="flex justify-end pt-3">
           <button
             type="submit"
-            className="bg-[#c0ff2d] text-black font-semibold text-sm py-3 px-8 rounded-full hover:bg-[#aee628] active:scale-95 transition-all duration-200"
+            className="w-[123px] h-[46px] bg-[#D4FB20] text-[#242528] text-xl font-medium rounded-full"
           >
             Continue
           </button>
