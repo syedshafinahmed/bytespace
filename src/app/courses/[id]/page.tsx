@@ -3,7 +3,7 @@
 import PublicLayout from "@/components/layout/PublicLayout";
 import Image from "next/image";
 import Link from "next/link";
-import { use, useState, Suspense } from "react";
+import { use, useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { FaPlay } from "react-icons/fa";
 import { IoShareSocialOutline, IoCheckmarkCircle, IoStarSharp } from "react-icons/io5";
@@ -12,6 +12,7 @@ import { CourseBadges } from "@/components/ui/CourseBadges";
 import { CourseLessonsList } from "@/components/ui/CourseLessonsList";
 import { CourseInclusions } from "@/components/ui/CourseInclusions";
 import { ReviewCard } from "@/components/ui/ReviewCard";
+import { CourseDetailsSkeleton } from "@/components/skeletons/CourseDetailsSkeleton";
 
 const courseTitlesMap: Record<string, string> = {
   "learn-figma-from-basic": "Learn Figma from Basic",
@@ -117,15 +118,28 @@ function CourseDetailsContent({
 }) {
   const params = use(paramsPromise);
   const searchParams = useSearchParams();
+  const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<"About" | "Lesson" | "Lessons" | "Reviews">("About");
   const [selectedRating, setSelectedRating] = useState<number | "all">("all");
+
+  const rawId = params?.id ? decodeURIComponent(params.id) : "";
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 600);
+    return () => clearTimeout(timer);
+  }, [rawId]);
+
+  if (isLoading) {
+    return <CourseDetailsSkeleton />;
+  }
 
   const filteredReviews =
     selectedRating === "all"
       ? reviewsList
       : reviewsList.filter((r) => r.rating === selectedRating);
 
-  const rawId = params?.id ? decodeURIComponent(params.id) : "";
   const queryTitle = searchParams.get("title");
   const courseTitle =
     queryTitle ||
@@ -567,7 +581,7 @@ export default function CourseDetailsPage({
   params: Promise<{ id: string }>;
 }) {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-white" />}>
+    <Suspense fallback={<CourseDetailsSkeleton />}>
       <CourseDetailsContent paramsPromise={params} />
     </Suspense>
   );

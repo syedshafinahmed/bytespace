@@ -1,9 +1,10 @@
 "use client";
 
 import PublicLayout from "@/components/layout/PublicLayout";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { CourseCard } from "@/components/ui/CourseCard";
+import { CreatorPageSkeleton } from "@/components/skeletons/CreatorPageSkeleton";
 import { MdSignalCellularAlt, MdOutlineSort, MdOutlineFilterAlt, MdOutlineCategory } from "react-icons/md";
 
 const courses = [
@@ -34,8 +35,20 @@ const courses = [
 ];
 
 export default function CreatorPage() {
+    const [isLoading, setIsLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [isFollowing, setIsFollowing] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 600);
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (isLoading) {
+        return <CreatorPageSkeleton />;
+    }
 
     return (
         <PublicLayout>
