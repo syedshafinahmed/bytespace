@@ -7,6 +7,7 @@ import { use, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { FaPlay } from "react-icons/fa";
 import { IoShareSocialOutline, IoCheckmarkCircle } from "react-icons/io5";
+import { MdOutlineVideocam } from "react-icons/md";
 import { CourseBadges } from "@/components/ui/CourseBadges";
 import { CourseLessonsList } from "@/components/ui/CourseLessonsList";
 import { CourseInclusions } from "@/components/ui/CourseInclusions";
@@ -24,6 +25,39 @@ const courseTitlesMap: Record<string, string> = {
   "from-idea-to-startup-success": "From Idea to Startup Success",
 };
 
+const modulesList = [
+  {
+    title: "Module 1: Introduction to Digital Assets",
+    description:
+      "Lay the groundwork with lessons like 'Understanding Digital Elements' and 'Navigating Design Software Tools.' Dive into the essentials of digital asset creation.",
+  },
+  {
+    title: "Module 2: Design Principles for Impact",
+    description:
+      "Master the principles that drive impactful designs with lessons such as 'Color Theory in Digital Design' and 'Typography Essentials.' Elevate your visual communication skills.",
+  },
+  {
+    title: "Module 4: User-Centric Design Strategies",
+    description:
+      "Understand 'Design Thinking in Digital Content Creation' and delve into 'User Experience (UX) Essentials.' Craft digital assets with a focus on user-centric design.",
+  },
+  {
+    title: "Module 5: Interactive Media and Engagement",
+    description:
+      "Engage your audience with lessons like 'Creating Interactive Presentations' and 'Integrating Multimedia Elements.' Master the art of creating immersive digital experiences.",
+  },
+  {
+    title: "Module 6: Project Showcase and Critique",
+    description:
+      "Perfect your presentation skills with 'Effective Presentation Techniques' and embrace collaboration with 'Peer Critique and Collaboration.' Showcase your work with confidence.",
+  },
+  {
+    title: "Module 7: Optimizing Digital Assets for Various Platforms",
+    description:
+      "Adapt your digital creations for 'Mobile Platforms' and optimize for 'Social Media.' Ensure widespread accessibility and engagement across diverse digital landscapes.",
+  },
+];
+
 function CourseDetailsContent({
   paramsPromise,
 }: {
@@ -31,7 +65,7 @@ function CourseDetailsContent({
 }) {
   const params = use(paramsPromise);
   const searchParams = useSearchParams();
-  const [activeTab, setActiveTab] = useState<"About" | "Lessons" | "Reviews">("About");
+  const [activeTab, setActiveTab] = useState<"About" | "Lesson" | "Lessons" | "Reviews">("About");
 
   const rawId = params?.id ? decodeURIComponent(params.id) : "";
   const queryTitle = searchParams.get("title");
@@ -112,8 +146,8 @@ function CourseDetailsContent({
 
               {/* Tabs */}
               <div className="flex items-center gap-3 mt-[143px]">
-                {(["About", "Lessons", "Reviews"] as const).map((tab) => {
-                  const isActive = activeTab === tab;
+                {(["About", "Lesson", "Reviews"] as const).map((tab) => {
+                  const isActive = activeTab === tab || (tab === "Lesson" && activeTab === "Lessons");
                   return (
                     <button
                       key={tab}
@@ -205,15 +239,74 @@ function CourseDetailsContent({
                 </div>
               )}
 
-              {activeTab === "Lessons" && (
-                <div className="mt-8">
-                  <h2 className="font-poppins font-semibold text-2xl text-[#242528] mb-4">
-                    Course Lessons
-                  </h2>
-                  <p className="font-satoshi text-[#4B4C53] text-base mb-6">
-                    Full curriculum and video lesson breakdown.
-                  </p>
-                  <CourseLessonsList />
+              {(activeTab === "Lesson" || activeTab === "Lessons") && (
+                <div className="mt-10 flex flex-col">
+                  {/* Explore the Modules */}
+                  <div>
+                    <h2 className="font-poppins font-semibold text-xl text-[#242528] mb-6">
+                      Explore the Modules
+                    </h2>
+                    <p className="font-satoshi text-base text-[#4B4C53] leading-relaxed mb-6">
+                      Immerse yourself in the course content as we break down each module into comprehensive lessons, providing practical insights and hands-on experiences.
+                    </p>
+                  </div>
+
+                  {/* Lesson List */}
+                  <div>
+                    <h3 className="font-poppins font-semibold text-xl text-[#242528] mb-6">
+                      Lesson List
+                    </h3>
+                    <div className="space-y-6">
+                      {modulesList.map((module, index) => (
+                        <div key={index} className="flex items-start gap-6">
+                          <div className="w-18 h-18 rounded-2xl bg-[#D4FB20] flex items-center justify-center flex-shrink-0">
+                            <MdOutlineVideocam className="text-[#242528]" size={40} />
+                          </div>
+                          <div>
+                            <h4 className="font-poppins font-medium text-base text-[#242528]">
+                              {module.title}
+                            </h4>
+                            <p className="font-satoshi text-base text-[#4B4C53] mt-1 leading-relaxed">
+                              {module.description}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Lesson Content */}
+                  <div className="mt-6">
+                    <h3 className="font-poppins font-semibold text-xl text-[#242528] mb-6">
+                      Lesson Content
+                    </h3>
+                    <p className="font-satoshi text-base text-[#4B4C53] leading-relaxed">
+                      Engage with each lesson through captivating video content, detailed textual explanations, and interactive elements. Download resources, complete assignments, and test your understanding with quizzes.
+                    </p>
+                  </div>
+
+                  {/* Lesson Progress Tracking */}
+                  <div className="mt-6">
+                    <h3 className="font-poppins font-semibold text-xl text-[#242528] mb-6">
+                      Lesson Progress Tracking
+                    </h3>
+                    <p className="font-satoshi text-base text-[#4B4C53] leading-relaxed mb-6">
+                      Witness your growth as you complete lessons, with an intuitive progress tracking feature guiding you through your learning journey.
+                    </p>
+
+                    {/* Progress Card */}
+                    <div className="border border-[#E5E7EB] rounded-[20px] p-4 bg-white shadow-sm">
+                      <p className="font-satoshi text-sm text-[#4B4C53] font-medium mb-2">
+                        Learning Progress
+                      </p>
+                      <p className="font-poppins font-semibold text-[36px] text-[#242528] mb-2">
+                        55%
+                      </p>
+                      <div className="w-full h-2 bg-[#F5F5F6] rounded-full overflow-hidden">
+                        <div className="w-[55%] h-full bg-[#D4FB20] rounded-full" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )}
 
