@@ -6,7 +6,7 @@ import Link from "next/link";
 import { use, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { FaPlay } from "react-icons/fa";
-import { IoShareSocialOutline } from "react-icons/io5";
+import { IoShareSocialOutline, IoCheckmarkCircle } from "react-icons/io5";
 import { CourseBadges } from "@/components/ui/CourseBadges";
 import { CourseLessonsList } from "@/components/ui/CourseLessonsList";
 import { CourseInclusions } from "@/components/ui/CourseInclusions";
@@ -129,30 +129,104 @@ function CourseDetailsContent({
                 })}
               </div>
 
-              {/* Description Content */}
-              <div className="mt-8">
-                <h2 className="font-poppins font-semibold text-2xl text-[#242528] mb-4">
-                  Description
-                </h2>
-                <div className="font-satoshi text-[#4B4C53] text-base leading-relaxed space-y-4">
-                  <p>
-                    Embark on an enlightening exploration into the world of digital creation
-                    with our comprehensive course, &ldquo;{courseTitle}.&rdquo; This
-                    transformative learning experience invites you to delve deep into the
-                    intricacies of crafting impactful digital content. From laying the groundwork
-                    with foundational concepts to mastering advanced techniques, this guide is
-                    meticulously curated to empower you with the skills essential for navigating the
-                    dynamic landscape of digital asset creation.
+              {/* Tab Content */}
+              {activeTab === "About" && (
+                <div className="mt-10 flex flex-col">
+                  {/* Description */}
+                  <div>
+                    <h2 className="font-poppins font-semibold text-xl text-[#242528] mb-6">
+                      Description
+                    </h2>
+                    <div className="font-satoshi text-[#4B4C53] text-base leading-relaxed space-y-4">
+                      <p>
+                        Embark on an enlightening exploration into the world of digital creation with our comprehensive course, &ldquo;Build Digital Assets: A Comprehensive Guide.&rdquo; This transformative learning experience invites you to delve deep into the intricacies of crafting impactful digital content. From laying the groundwork with foundational concepts to mastering advanced techniques, this guide is meticulously curated to empower you with the skills essential for navigating the dynamic landscape of digital asset creation.
+                      </p>
+                      <p>
+                        In the initial modules, you&apos;ll establish a solid foundation by immersing yourself in the foundational concepts that form the backbone of digital asset creation. Understand the fundamental elements that constitute compelling digital content and gain proficiency in leveraging these elements to communicate effectively in the digital realm.
+                      </p>
+                      <p>
+                        As you progress through the course, you&apos;ll ascend to higher levels of expertise, delving into the nuances of design principles that drive impactful creations. Uncover the secrets behind effective visual communication, exploring color theory, typography, and layout strategies that elevate your digital assets to new heights. Engage in hands-on exercises that reinforce your understanding, allowing you to apply these principles in practical scenarios.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Sneak Peak */}
+                  <div className="mt-6">
+                    <h3 className="font-poppins font-semibold text-xl text-[#242528] mb-6">
+                      Sneak Peak
+                    </h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                      {[
+                        "/images/courses/about1.jpg",
+                        "/images/courses/about2.jpg",
+                        "/images/courses/about3.jpg",
+                        "/images/courses/about4.jpg",
+                      ].map((src, index) => (
+                        <div
+                          key={index}
+                          className="relative aspect-[4/3] h-[125px] rounded-[16px] overflow-hidden bg-gray-100 shadow-sm group/sneak"
+                        >
+                          <Image
+                            src={src}
+                            alt={`Sneak Peak ${index + 1}`}
+                            fill
+                            className="object-cover group-hover/sneak:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Key Points */}
+                  <div className="mt-6">
+                    <h3 className="font-poppins font-semibold text-xl text-[#242528] mb-6">
+                      Key Points
+                    </h3>
+                    <ul className="space-y-4">
+                      {[
+                        "Foundational Concepts",
+                        "Design Principles Mastery",
+                        "Advanced Techniques in Digital Creation",
+                        "Project Showcase and Critique",
+                        "Optimizing for Various Platforms",
+                        "Digital Asset Management Best Practices",
+                        "Monetization Strategies",
+                        "Capstone Project: Building Your Portfolio",
+                      ].map((point, index) => (
+                        <li key={index} className="flex items-center gap-2">
+                          <IoCheckmarkCircle className="text-[#003BE2] flex-shrink-0" size={20} />
+                          <span className="font-satoshi text-base text-[#4F4F4F]">
+                            {point}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === "Lessons" && (
+                <div className="mt-8">
+                  <h2 className="font-poppins font-semibold text-2xl text-[#242528] mb-4">
+                    Course Lessons
+                  </h2>
+                  <p className="font-satoshi text-[#4B4C53] text-base mb-6">
+                    Full curriculum and video lesson breakdown.
                   </p>
-                  <p>
-                    In the initial modules, you&apos;ll establish a solid foundation by immersing
-                    yourself in the foundational concepts that form the backbone of digital asset
-                    creation. Understand the fundamental elements that constitute compelling digital
-                    content and gain proficiency in leveraging these elements to communicate
-                    effectively in the digital realm.
+                  <CourseLessonsList />
+                </div>
+              )}
+
+              {activeTab === "Reviews" && (
+                <div className="mt-8">
+                  <h2 className="font-poppins font-semibold text-2xl text-[#242528] mb-4">
+                    Student Reviews
+                  </h2>
+                  <p className="font-satoshi text-[#4B4C53] text-base">
+                    4.8 out of 5 stars based on 172 reviews.
                   </p>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* Right Sticky Sidebar Column (4 cols) */}
