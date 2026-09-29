@@ -30,11 +30,11 @@ export default function Testimonial() {
       <div className="absolute inset-0 flex justify-center pointer-events-none overflow-hidden z-0">
         <div className="w-[1440px] h-full relative flex-shrink-0">
           {/* Center-Top Glow */}
-          <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[450px] h-[450px] bg-[#D4FB20] rounded-full blur-[160px] opacity-70" />
+          <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[450px] h-[450px] bg-[#D4FB20] rounded-full blur-[160px] opacity-90" />
           {/* Right Glow */}
-          <div className="absolute top-16 -right-46 w-[400px] h-[400px] bg-[#D4FB20] rounded-full blur-[150px] opacity-40" />
+          <div className="absolute top-16 -right-46 w-[400px] h-[400px] bg-[#D4FB20] rounded-full blur-[150px] opacity-70" />
           {/* Bottom-Left Blue Glow */}
-          <div className="absolute -bottom-24 -left-16 w-[700px] h-[700px] bg-[#003BE2] rounded-full blur-[160px] opacity-20" />
+          <div className="absolute -bottom-14 -left-10 w-[300px] h-[300px] bg-[#003BE2] rounded-full blur-[160px] opacity-70" />
         </div>
       </div>
 
