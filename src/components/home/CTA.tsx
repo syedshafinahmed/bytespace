@@ -25,7 +25,7 @@ export default function CTA() {
             Experience the collaboration of numerous creators and an expanding selection of courses. Register now and become a <br /> part of a community comprising over 10,000 local and international creators. Utilize our Course Editor, and showcase your <br /> expertise by publishing your finest course on the ByteSpace Course Library.
           </p>
           <Link 
-            href="/creator"
+            href="/creators"
             className="bg-[#D4FB20] text-[#242528] font-satoshi font-medium text-[18px] px-10 py-4 rounded-full"
           >
             Join as Creator

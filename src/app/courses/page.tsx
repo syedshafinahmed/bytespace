@@ -19,7 +19,7 @@ const courses = [
         image: "/images/explore/e1.png"
     },
     {
-        title: "Build Digital Asset",
+        title: "Build Digital Asset: A Comprehensive Guide",
         image: "/images/explore/e2.png"
     },
     {

@@ -8,9 +8,9 @@ import { BiCodeBlock } from "react-icons/bi";
 import { CourseCard } from "@/components/ui/CourseCard";
 
 const categories = [
-  "Featured", "Music", "Drawing & Painting", "Marketing", "Animation", 
-  "Social Media", "UI/UX Design", "Creative Marketing", "Digital Illustration", 
-  "Film & Video", "Crafts", "Freelance & Entrepreneurship", "Graphic Design", 
+  "Featured", "Music", "Drawing & Painting", "Marketing", "Animation",
+  "Social Media", "UI/UX Design", "Creative Marketing", "Digital Illustration",
+  "Film & Video", "Crafts", "Freelance & Entrepreneurship", "Graphic Design",
   "Photography", "Productivity", "Web Development", "Data Science", "Cooking"
 ];
 
@@ -20,7 +20,7 @@ const courses = [
     image: "/images/explore/e1.png"
   },
   {
-    title: "Build Digital Asset",
+    title: "Build Digital Asset: A Comprehensive Guide",
     image: "/images/explore/e2.png"
   },
   {
@@ -62,20 +62,19 @@ export default function ExploreSection() {
         <p className="font-satoshi text-lg text-[#82868E] text-center mb-[42px]">
           At Bytespace Courses, we bring you closer to life-changing knowledge. Explore a variety of courses across different <br /> fields, from technology to the arts, and make a difference in your career and life.
         </p>
-        
+
         {/* Categories */}
         <div className="flex flex-wrap items-center justify-center gap-3 max-w-[1050px] mx-auto mb-16">
           {categories.map((cat) => {
             const isActive = activeTab === cat;
             return (
-              <button 
+              <button
                 key={cat}
                 onClick={() => setActiveTab(cat)}
-                className={`px-5 py-2.5 rounded-full font-satoshi text-sm transition-colors ${
-                  isActive 
-                  ? "bg-[#D4FB20] text-[#242528] font-medium" 
-                  : "bg-[#F5F5F6] text-[#4B4C53] hover:bg-gray-200"
-                }`}
+                className={`px-5 py-2.5 rounded-full font-satoshi text-sm transition-colors ${isActive
+                    ? "bg-[#D4FB20] text-[#242528] font-medium"
+                    : "bg-[#F5F5F6] text-[#4B4C53] hover:bg-gray-200"
+                  }`}
               >
                 {cat}
               </button>
