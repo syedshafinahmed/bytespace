@@ -1,8 +1,9 @@
 "use client";
 
 import PublicLayout from "@/components/layout/PublicLayout";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CourseCard } from "@/components/ui/CourseCard";
+import { CoursesPageSkeleton } from "@/components/skeletons/CoursesPageSkeleton";
 import { IoSearchOutline } from "react-icons/io5";
 import { FaChevronDown } from "react-icons/fa";
 import { MdSignalCellularAlt, MdOutlineSort, MdOutlineFilterAlt, MdOutlineCategory } from "react-icons/md";
@@ -41,8 +42,20 @@ const courses = [
 ];
 
 export default function CoursePage() {
+    const [isLoading, setIsLoading] = useState(true);
     const [activeTab, setActiveTab] = useState("Featured");
     const [currentPage, setCurrentPage] = useState(1);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 600);
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (isLoading) {
+        return <CoursesPageSkeleton />;
+    }
 
     return (
         <PublicLayout>
