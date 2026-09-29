@@ -64,10 +64,10 @@ export function AuthLayout({ children, title, description }: AuthLayoutProps) {
             className="absolute bottom-5 -right-30 z-50 opacity-100"
           />
 
-          {/* Card 1 — Build Digital Asset */}
+          {/* Card 1 — Build Digital Asset: A Comprehensive Guide */}
           <div className="absolute top-25 left-0 z-10">
             <CourseCard
-              title="Build Digital Asset"
+              title="Build Digital Asset: A Comprehensive Guide"
               image="/images/explore/e2.png"
               starColor="#D4FB20"
               className="shadow-sm"
