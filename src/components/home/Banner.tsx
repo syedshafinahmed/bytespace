@@ -5,7 +5,6 @@ import { FaStar } from "react-icons/fa";
 export default function Banner() {
   return (
     <section className="relative w-full bg-[#003BE2] h-[820px] sm:h-[920px] lg:h-[1024px] pt-[90px] sm:pt-[110px] lg:pt-[120px] bg-[image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:112px_112px] overflow-hidden">
-      {/* Hidden on mobile, preserved on large screens */}
       {/* frame_tl */}
       <div className="hidden lg:block absolute top-[200px] left-0 w-[310px] pointer-events-none select-none z-10">
         <Image
@@ -25,6 +24,55 @@ export default function Banner() {
           alt=""
           width={370}
           height={370}
+          className="w-full h-auto object-contain"
+          priority
+        />
+      </div>
+
+      {/* Mobile Device */}
+      {/* frame_tl */}
+      <div className="block lg:hidden absolute top-[500px] left-0 w-[150px] pointer-events-none select-none z-10">
+        <Image
+          src="/images/banner/frame_tl.png"
+          alt=""
+          width={385}
+          height={385}
+          className="w-full h-auto object-contain"
+          priority
+        />
+      </div>
+
+      {/* frame_tr */}
+      <div className="block lg:hidden absolute top-[450px] right-0 w-[120px] pointer-events-none select-none z-10">
+        <Image
+          src="/images/banner/frame_tr.png"
+          alt=""
+          width={370}
+          height={370}
+          className="w-full h-auto object-contain"
+          priority
+        />
+      </div>
+
+      {/* cone_triangle */}
+      <div className="block lg:hidden absolute bottom-70 right-32 w-[150px]">
+        <Image
+          src="/images/banner/cone_triangle.png"
+          alt=""
+          width={188}
+          height={188}
+          className="w-full h-auto object-contain"
+          priority
+        />
+      </div>
+
+      {/* cone_oval */}
+      <div className="block lg:hidden absolute bottom-0 right-0 z-100 w-[150px]">
+        <Image
+          src="/images/banner/cone_oval.png"
+          alt=""
+          width={342}
+          height={342}
           className="w-full h-auto object-contain"
           priority
         />
@@ -80,7 +128,7 @@ export default function Banner() {
         </div>
       </div>
 
-      {/* ── Hero Content ── */}
+      {/* Hero Content */}
       <div className="relative z-30 max-w-[1440px] w-full mx-auto px-4 sm:px-8 lg:px-16 h-full flex flex-col justify-between lg:h-[904px]">
         {/* Text + Search */}
         <div className="text-center pt-4 sm:pt-8 lg:pt-14">
@@ -117,7 +165,7 @@ export default function Banner() {
           </div>
         </div>
 
-        {/* Floating Cards (Shown on mobile & large screen) */}
+        {/* Floating Cards */}
         <div className="relative flex-1 mx-auto w-full max-w-[900px] min-h-[380px] sm:min-h-[460px] lg:min-h-0">
           {/* UI/UX Design */}
           <div className="absolute top-15 sm:top-14 lg:top-33 left-2 sm:left-10 lg:left-35 bg-white rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl px-3 py-2 sm:px-4 sm:py-3 w-[150px] sm:w-[185px] lg:w-[208px] z-30 transition-all">
@@ -164,7 +212,7 @@ export default function Banner() {
         />
       </div>
 
-      {/* ── Student Image — visible on all devices (scaled on mobile) ── */}
+      {/* Student Image */}
       <div className="absolute bottom-0 inset-x-0 mx-auto z-20 w-[470px] lg:w-[700px] translate-x-[15px] sm:translate-x-[35px] lg:translate-x-[62px]">
         <Image
           src="/images/banner/Image.png"
